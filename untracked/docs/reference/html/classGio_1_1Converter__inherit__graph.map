@@ -1,0 +1,9 @@
+<map id="Gio::Converter" name="Gio::Converter">
+<area shape="rect" id="node1" title="Converter &#45; Data conversion interface." alt="" coords="216,229,332,256"/>
+<area shape="rect" id="node5" href="$classGio_1_1CharsetConverter.html" title="CharsetConverter &#45; Convert between charsets." alt="" coords="5,304,172,331"/>
+<area shape="rect" id="node6" href="$classGio_1_1ZlibCompressor.html" title="ZlibCompressor &#45; Zlib compressor." alt="" coords="197,304,351,331"/>
+<area shape="rect" id="node7" href="$classGio_1_1ZlibDecompressor.html" title="ZlibDecompressor &#45; Zlib decompressor." alt="" coords="375,304,546,331"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Interface.html" title=" " alt="" coords="217,155,331,181"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="209,80,339,107"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="216,5,332,32"/>
+</map>

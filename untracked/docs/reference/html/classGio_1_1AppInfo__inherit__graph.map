@@ -1,0 +1,7 @@
+<map id="Gio::AppInfo" name="Gio::AppInfo">
+<area shape="rect" id="node1" title="Application information, to describe applications installed on the system, and launch them." alt="" coords="32,229,135,256"/>
+<area shape="rect" id="node5" href="$classGio_1_1DesktopAppInfo.html" title="DesktopAppInfo is an implementation of AppInfo based on desktop files." alt="" coords="5,304,161,331"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Interface.html" title=" " alt="" coords="26,155,141,181"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="18,80,149,107"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="25,5,141,32"/>
+</map>

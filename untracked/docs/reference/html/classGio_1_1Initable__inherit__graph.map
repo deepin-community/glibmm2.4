@@ -1,0 +1,11 @@
+<map id="Gio::Initable" name="Gio::Initable">
+<area shape="rect" id="node1" title="Failable object initialization interface." alt="" coords="511,123,612,149"/>
+<area shape="rect" id="node5" href="$classGio_1_1DBus_1_1Connection.html" title="A D&#45;Bus Connection." alt="" coords="673,5,840,32"/>
+<area shape="rect" id="node6" href="$classGio_1_1DBus_1_1ObjectManagerClient.html" title="Client&#45;side object manager." alt="" coords="660,57,853,98"/>
+<area shape="rect" id="node7" href="$classGio_1_1DBus_1_1Proxy.html" title="A client&#45;side proxy." alt="" coords="691,123,822,149"/>
+<area shape="rect" id="node8" href="$classGio_1_1DBus_1_1Server.html" title="This is a helper for listening to and accepting D&#45;Bus connections." alt="" coords="689,173,825,200"/>
+<area shape="rect" id="node9" href="$classGio_1_1Socket.html" title="Low&#45;level socket object." alt="" coords="709,224,804,251"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Interface.html" title=" " alt="" coords="348,123,463,149"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="169,123,300,149"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="5,123,121,149"/>
+</map>

@@ -1,0 +1,9 @@
+<map id="Gio::BufferedInputStream" name="Gio::BufferedInputStream">
+<area shape="rect" id="node1" title="The buffered input stream implements FilterInputStream and provides for buffered reads." alt="" coords="5,379,192,405"/>
+<area shape="rect" id="node7" href="$classGio_1_1DataInputStream.html" title="An implementation of BufferedInputStream that allows for high&#45;level data manipulation of arbitrary da..." alt="" coords="17,453,180,480"/>
+<area shape="rect" id="node2" href="$classGio_1_1FilterInputStream.html" title="Filter Input Stream." alt="" coords="16,304,181,331"/>
+<area shape="rect" id="node3" href="$classGio_1_1InputStream.html" title="Base class for implementing streaming input." alt="" coords="33,229,165,256"/>
+<area shape="rect" id="node4" href="$classGlib_1_1Object.html" title=" " alt="" coords="49,155,148,181"/>
+<area shape="rect" id="node5" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="33,80,164,107"/>
+<area shape="rect" id="node6" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="41,5,157,32"/>
+</map>

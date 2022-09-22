@@ -1,0 +1,143 @@
+--- ./../../gio/src/gio_signals.defs.orig	2020-03-16 18:33:48.007956031 +0100
++++ ./../../gio/src/gio_signals.defs	2020-03-16 18:36:00.059688821 +0100
+@@ -87,11 +87,11 @@
+   (return-type "void")
+   (flags "Run Last, Must Collect")
+   (detailed #t)
+   (parameters
+     '("const-gchar*" "p0")
+-    '("GVariant" "p1")
++    '("GVariant*" "p1")
+   )
+ )
+ 
+ ;; From GApplication
+ 
+@@ -597,10 +597,11 @@
+   (prop-type "GParamBoolean")
+   (docs "Whether or not this is an abstract address")
+   (readable #t)
+   (writable #t)
+   (construct-only #t)
++  (deprecated #t)
+   (default-value "FALSE")
+ )
+ 
+ (define-property address-type
+   (of-object "GUnixSocketAddress")
+@@ -744,11 +745,11 @@
+   (of-object "GMountOperation")
+   (return-type "void")
+   (flags "Run Last")
+   (parameters
+     '("const-gchar*" "p0")
+-    '("GStrv*" "p1")
++    '("const-gchar**" "p1")
+   )
+ )
+ 
+ (define-signal reply
+   (of-object "GMountOperation")
+@@ -1142,11 +1143,11 @@
+ (define-signal writable-change-event
+   (of-object "GSettings")
+   (return-type "gboolean")
+   (flags "Run Last")
+   (parameters
+-    '("guint" "p0")
++    '("GQuark" "p0")
+   )
+ )
+ 
+ (define-property settings-schema
+   (of-object "GSettings")
+@@ -1226,20 +1227,20 @@
+ (define-signal activate
+   (of-object "GSimpleAction")
+   (return-type "void")
+   (flags "Run Last, Must Collect")
+   (parameters
+-    '("GVariant" "p0")
++    '("GVariant*" "p0")
+   )
+ )
+ 
+ (define-signal change-state
+   (of-object "GSimpleAction")
+   (return-type "void")
+   (flags "Run Last, Must Collect")
+   (parameters
+-    '("GVariant" "p0")
++    '("GVariant*" "p0")
+   )
+ )
+ 
+ (define-property name
+   (of-object "GSimpleAction")
+@@ -1886,11 +1887,11 @@
+ (define-signal writable-change-event
+   (of-object "GSettings")
+   (return-type "gboolean")
+   (flags "Run Last")
+   (parameters
+-    '("guint" "p0")
++    '("GQuark" "p0")
+   )
+ )
+ 
+ (define-property settings-schema
+   (of-object "GSettings")
+@@ -2809,23 +2810,23 @@
+   (parameters
+     '("GDBusObjectProxy*" "p0")
+     '("GDBusProxy*" "p1")
+     '("const-gchar*" "p2")
+     '("const-gchar*" "p3")
+-    '("GVariant" "p4")
++    '("GVariant*" "p4")
+   )
+ )
+ 
+ (define-signal interface-proxy-properties-changed
+   (of-object "GDBusObjectManagerClient")
+   (return-type "void")
+   (flags "Run Last")
+   (parameters
+     '("GDBusObjectProxy*" "p0")
+     '("GDBusProxy*" "p1")
+-    '("GVariant" "p2")
+-    '("GStrv*" "p3")
++    '("GVariant*" "p2")
++    '("const-gchar*const*" "p3")
+   )
+ )
+ 
+ (define-property bus-type
+   (of-object "GDBusObjectManagerClient")
+@@ -2998,23 +2999,23 @@
+ (define-signal g-properties-changed
+   (of-object "GDBusProxy")
+   (return-type "void")
+   (flags "Run Last, Must Collect")
+   (parameters
+-    '("GVariant" "p0")
+-    '("GStrv*" "p1")
++    '("GVariant*" "p0")
++    '("const-gchar*const*" "p1")
+   )
+ )
+ 
+ (define-signal g-signal
+   (of-object "GDBusProxy")
+   (return-type "void")
+   (flags "Run Last, Must Collect")
+   (parameters
+     '("const-gchar*" "p0")
+     '("const-gchar*" "p1")
+-    '("GVariant" "p2")
++    '("GVariant*" "p2")
+   )
+ )
+ 
+ (define-property g-connection
+   (of-object "GDBusProxy")

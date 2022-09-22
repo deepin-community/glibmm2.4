@@ -1,0 +1,5 @@
+<map id="Gio::SocketSource" name="Gio::SocketSource">
+<area shape="rect" id="node1" title="An event source that can monitor a Gio::Socket." alt="" coords="5,155,144,181"/>
+<area shape="rect" id="node2" href="$classGlib_1_1IOSource.html" title=" " alt="" coords="17,80,132,107"/>
+<area shape="rect" id="node3" href="$classGlib_1_1Source.html" title=" " alt="" coords="25,5,125,32"/>
+</map>

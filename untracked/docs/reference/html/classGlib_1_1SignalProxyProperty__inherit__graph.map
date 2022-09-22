@@ -1,0 +1,4 @@
+<map id="Glib::SignalProxyProperty" name="Glib::SignalProxyProperty">
+<area shape="rect" id="node1" title="Use the connect() method, with sigc::ptr_fun() or sigc::mem_fun() to connect signals to signal handle..." alt="" coords="5,80,193,107"/>
+<area shape="rect" id="node2" href="$classGlib_1_1SignalProxyBase.html" title=" " alt="" coords="17,5,182,32"/>
+</map>

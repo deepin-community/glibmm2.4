@@ -1,0 +1,131 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="5,924,121,951"/>
+<area shape="rect" id="node2" href="$classGlib_1_1IOChannel.html" title="IOChannel aims to provide portable I/O support for files, pipes and sockets, and to integrate them wi..." alt="" coords="207,848,330,875"/>
+<area shape="rect" id="node4" href="$classGlib_1_1Markup_1_1ParseContext.html" title="A parse context is used to parse marked&#45;up documents." alt="" coords="169,899,368,925"/>
+<area shape="rect" id="node5" href="$classGlib_1_1Markup_1_1Parser.html" title="The abstract markup parser base class." alt="" coords="193,949,345,976"/>
+<area shape="rect" id="node6" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="203,1000,334,1027"/>
+<area shape="rect" id="node3" href="$classGlib_1_1StreamIOChannel.html" title=" " alt="" coords="416,848,587,875"/>
+<area shape="rect" id="node7" href="$classGlib_1_1ExtraClassInit.html" title="A convenience class for named custom types." alt="" coords="428,1000,575,1027"/>
+<area shape="rect" id="node8" href="$classGlib_1_1Interface.html" title=" " alt="" coords="444,924,559,951"/>
+<area shape="rect" id="node73" href="$classGlib_1_1Object.html" title=" " alt="" coords="682,1861,781,1888"/>
+<area shape="rect" id="node9" href="$classGio_1_1Action.html" title="Action &#45; An action." alt="" coords="685,772,778,799"/>
+<area shape="rect" id="node11" href="$classGio_1_1ActionGroup.html" title="ActionGroup &#45; a group of actions." alt="" coords="665,107,797,133"/>
+<area shape="rect" id="node15" href="$classGio_1_1ActionMap.html" title="ActionMap &#45; Interface for action containers." alt="" coords="671,56,792,83"/>
+<area shape="rect" id="node16" href="$classGio_1_1AppInfo.html" title="Application information, to describe applications installed on the system, and launch them." alt="" coords="680,835,783,861"/>
+<area shape="rect" id="node18" href="$classGio_1_1AsyncInitable.html" title="AsyncInitable &#45; Asynchronously failable object initialization interface." alt="" coords="661,493,801,520"/>
+<area shape="rect" id="node22" href="$classGio_1_1AsyncResult.html" title="Provides a base class for implementing asynchronous function results." alt="" coords="665,1203,797,1229"/>
+<area shape="rect" id="node23" href="$classGio_1_1Converter.html" title="Converter &#45; Data conversion interface." alt="" coords="673,899,789,925"/>
+<area shape="rect" id="node27" href="$classGio_1_1DBus_1_1Interface.html" title="Interface &#45; Base type for D&#45;Bus interfaces." alt="" coords="655,949,807,976"/>
+<area shape="rect" id="node29" href="$classGio_1_1DBus_1_1Object.html" title="Object &#45; Base type for D&#45;Bus objects." alt="" coords="663,1051,799,1077"/>
+<area shape="rect" id="node32" href="$classGio_1_1DBus_1_1ObjectManager.html" title="Base type for D&#45;Bus object managers." alt="" coords="635,688,828,715"/>
+<area shape="rect" id="node34" href="$classGio_1_1Drive.html" title="Virtual File System drive management." alt="" coords="688,1253,775,1280"/>
+<area shape="rect" id="node35" href="$classGio_1_1File.html" title="File and directory handling." alt="" coords="694,1304,769,1331"/>
+<area shape="rect" id="node36" href="$classGio_1_1Icon.html" title="This is a very minimal interface for icons." alt="" coords="692,1101,771,1128"/>
+<area shape="rect" id="node42" href="$classGio_1_1Initable.html" title="Failable object initialization interface." alt="" coords="681,561,782,588"/>
+<area shape="rect" id="node45" href="$classGio_1_1ListModel.html" title="A dynamic list of objects." alt="" coords="674,1000,789,1027"/>
+<area shape="rect" id="node48" href="$classGio_1_1Mount.html" title="The Mount interface represents user&#45;visible mounts." alt="" coords="685,1355,778,1381"/>
+<area shape="rect" id="node49" href="$classGio_1_1NetworkMonitor.html" title="Network status monitor." alt="" coords="653,1405,810,1432"/>
+<area shape="rect" id="node50" href="$classGio_1_1PollableInputStream.html" title="PollableInputStream &#45; Interface for pollable input streams." alt="" coords="1162,208,1346,235"/>
+<area shape="rect" id="node52" href="$classGio_1_1PollableOutputStream.html" title="PollableOutputStream &#45; Interface for pollable output streams." alt="" coords="1157,259,1351,285"/>
+<area shape="rect" id="node54" href="$classGio_1_1Proxy.html" title="Proxy &#45; Interface for proxy handling." alt="" coords="687,1456,776,1483"/>
+<area shape="rect" id="node55" href="$classGio_1_1ProxyResolver.html" title="ProxyResolver &#45; Asynchronous and cancellable network proxy resolver." alt="" coords="658,1507,805,1533"/>
+<area shape="rect" id="node56" href="$classGio_1_1RemoteActionGroup.html" title="RemoteActionGroup &#45; a ActionGroup that interacts with other processes." alt="" coords="640,157,823,184"/>
+<area shape="rect" id="node57" href="$classGio_1_1Seekable.html" title="Stream seeking interface." alt="" coords="932,360,1043,387"/>
+<area shape="rect" id="node63" href="$classGio_1_1SocketConnectable.html" title="Interface for potential socket endpoints." alt="" coords="643,1152,819,1179"/>
+<area shape="rect" id="node70" href="$classGio_1_1TlsClientConnection.html" title="TlsClientConnection &#45; TLS client&#45;side connection." alt="" coords="1421,1431,1604,1457"/>
+<area shape="rect" id="node71" href="$classGio_1_1TlsServerConnection.html" title="TlsServerConnection &#45; TLS server&#45;side connection." alt="" coords="1419,1735,1606,1761"/>
+<area shape="rect" id="node72" href="$classGio_1_1Volume.html" title="The Volume interface represents user&#45;visible objects that can be mounted." alt="" coords="681,5,782,32"/>
+<area shape="rect" id="node10" href="$classGio_1_1SimpleAction.html" title="SimpleAction &#45; A simple Action implementation." alt="" coords="918,747,1057,773"/>
+<area shape="rect" id="node12" href="$classGio_1_1Application.html" title="Application &#45; Core application class." alt="" coords="925,107,1050,133"/>
+<area shape="rect" id="node13" href="$classGio_1_1DBus_1_1ActionGroup.html" title="ActionGroup &#45; A D&#45;Bus Gio::ActionGroup implementation." alt="" coords="900,157,1075,184"/>
+<area shape="rect" id="node14" href="$classGio_1_1SimpleActionGroup.html" title="SimpleActionGroup &#45; A simple ActionGroup implementation." alt="" coords="899,56,1076,83"/>
+<area shape="rect" id="node17" href="$classGio_1_1DesktopAppInfo.html" title="DesktopAppInfo is an implementation of AppInfo based on desktop files." alt="" coords="909,797,1065,824"/>
+<area shape="rect" id="node19" href="$classGio_1_1DBus_1_1Connection.html" title="A D&#45;Bus Connection." alt="" coords="904,411,1071,437"/>
+<area shape="rect" id="node20" href="$classGio_1_1DBus_1_1ObjectManagerClient.html" title="Client&#45;side object manager." alt="" coords="891,513,1084,554"/>
+<area shape="rect" id="node21" href="$classGio_1_1DBus_1_1Proxy.html" title="A client&#45;side proxy." alt="" coords="922,461,1053,488"/>
+<area shape="rect" id="node24" href="$classGio_1_1CharsetConverter.html" title="CharsetConverter &#45; Convert between charsets." alt="" coords="904,899,1071,925"/>
+<area shape="rect" id="node25" href="$classGio_1_1ZlibCompressor.html" title="ZlibCompressor &#45; Zlib compressor." alt="" coords="910,949,1065,976"/>
+<area shape="rect" id="node26" href="$classGio_1_1ZlibDecompressor.html" title="ZlibDecompressor &#45; Zlib decompressor." alt="" coords="902,848,1073,875"/>
+<area shape="rect" id="node28" href="$classGio_1_1DBus_1_1InterfaceSkeleton.html" title="Abstract base class for D&#45;Bus interfaces on the service side." alt="" coords="883,1000,1091,1027"/>
+<area shape="rect" id="node30" href="$classGio_1_1DBus_1_1ObjectProxy.html" title="Client&#45;side D&#45;Bus object." alt="" coords="901,1152,1074,1179"/>
+<area shape="rect" id="node31" href="$classGio_1_1DBus_1_1ObjectSkeleton.html" title="Service&#45;side D&#45;Bus object." alt="" coords="891,1101,1083,1128"/>
+<area shape="rect" id="node33" href="$classGio_1_1DBus_1_1ObjectManagerServer.html" title="Service&#45;side object manager." alt="" coords="891,681,1084,722"/>
+<area shape="rect" id="node37" href="$classGio_1_1Emblem.html" title="An object for emblems." alt="" coords="934,1304,1041,1331"/>
+<area shape="rect" id="node38" href="$classGio_1_1EmblemedIcon.html" title="Icons with Emblems." alt="" coords="913,1355,1062,1381"/>
+<area shape="rect" id="node39" href="$classGio_1_1LoadableIcon.html" title="Extends the Icon interface and adds the ability to load icons from streams." alt="" coords="918,1203,1057,1229"/>
+<area shape="rect" id="node41" href="$classGio_1_1ThemedIcon.html" title="Icon theming support." alt="" coords="921,1253,1053,1280"/>
+<area shape="rect" id="node40" href="$classGio_1_1FileIcon.html" title="FileIcon specifies an icon by pointing to an image file to be used as icon." alt="" coords="1203,1304,1305,1331"/>
+<area shape="rect" id="node43" href="$classGio_1_1DBus_1_1Server.html" title="This is a helper for listening to and accepting D&#45;Bus connections." alt="" coords="919,579,1055,605"/>
+<area shape="rect" id="node44" href="$classGio_1_1Socket.html" title="Low&#45;level socket object." alt="" coords="940,629,1035,656"/>
+<area shape="rect" id="node46" href="$classGio_1_1ListStoreBase.html" title="A simple implementation of Gio::ListModel that stores all items in memory." alt="" coords="917,1051,1058,1077"/>
+<area shape="rect" id="node47" href="$classGio_1_1ListStore.html" title="A simple implementation of Gio::ListModel that stores all items in memory." alt="" coords="1162,1051,1346,1077"/>
+<area shape="rect" id="node51" href="$classGio_1_1ConverterInputStream.html" title="ConverterInputstream &#45; Converter Input Stream." alt="" coords="1415,1329,1611,1356"/>
+<area shape="rect" id="node53" href="$classGio_1_1ConverterOutputStream.html" title="ConverterOutputstream &#45; Converter Output Stream." alt="" coords="1409,1380,1616,1407"/>
+<area shape="rect" id="node58" href="$classGio_1_1FileIOStream.html" title="FileIOStream provides input streams that take their content from a file." alt="" coords="1186,1608,1322,1635"/>
+<area shape="rect" id="node59" href="$classGio_1_1FileInputStream.html" title="FileInputStream provides input streams that take their content from a file." alt="" coords="1177,1152,1331,1179"/>
+<area shape="rect" id="node60" href="$classGio_1_1FileOutputStream.html" title="FileOutputStream provides output streams that write their content to a file." alt="" coords="1171,1253,1337,1280"/>
+<area shape="rect" id="node61" href="$classGio_1_1MemoryInputStream.html" title="MemoryInputStream implements InputStream for arbitrary memory chunks." alt="" coords="1161,1101,1347,1128"/>
+<area shape="rect" id="node62" href="$classGio_1_1MemoryOutputStream.html" title="Streaming output operations on memory chunks." alt="" coords="1155,1203,1353,1229"/>
+<area shape="rect" id="node64" href="$classGio_1_1NetworkAddress.html" title="A SocketConnectable for resolving hostnames." alt="" coords="908,1456,1067,1483"/>
+<area shape="rect" id="node65" href="$classGio_1_1NetworkService.html" title="A GSocketConnectable for resolving SRV records." alt="" coords="910,1405,1065,1432"/>
+<area shape="rect" id="node66" href="$classGio_1_1SocketAddress.html" title="Abstract base class representing endpoints for socket communication." alt="" coords="914,1557,1061,1584"/>
+<area shape="rect" id="node67" href="$classGio_1_1InetSocketAddress.html" title="Internet SocketAddress." alt="" coords="1168,1405,1340,1432"/>
+<area shape="rect" id="node69" href="$classGio_1_1UnixSocketAddress.html" title="UnixSocketAddress &#45; UNIX SocketAddress." alt="" coords="1165,1355,1343,1381"/>
+<area shape="rect" id="node68" href="$classGio_1_1ProxyAddress.html" title="ProxyAddress &#45; An internet address with proxy information." alt="" coords="1442,1279,1583,1305"/>
+<area shape="rect" id="node74" href="$classGio_1_1AppLaunchContext.html" title="This is used to handle, for instance, startup notification and launching of the new application on th..." alt="" coords="900,2723,1075,2749"/>
+<area shape="rect" id="node75" href="$classGio_1_1ApplicationCommandLine.html" title="ApplicationCommandLine &#45; A command&#45;line invocation of an application." alt="" coords="878,2773,1097,2800"/>
+<area shape="rect" id="node76" href="$classGio_1_1Cancellable.html" title="Allows actions to be cancelled." alt="" coords="923,2824,1051,2851"/>
+<area shape="rect" id="node77" href="$classGio_1_1Credentials.html" title="An object containing credentials." alt="" coords="924,2875,1051,2901"/>
+<area shape="rect" id="node78" href="$classGio_1_1DBus_1_1AuthObserver.html" title="AuthObserver &#45; An object used for authenticating connections." alt="" coords="896,2925,1079,2952"/>
+<area shape="rect" id="node79" href="$classGio_1_1DBus_1_1Message.html" title="A type for representing D&#45;Bus messages that can be sent or received on a Connection." alt="" coords="911,2976,1063,3003"/>
+<area shape="rect" id="node80" href="$classGio_1_1DBus_1_1MethodInvocation.html" title="An Object for handling remote calls." alt="" coords="882,3027,1093,3053"/>
+<area shape="rect" id="node81" href="$classGio_1_1FileEnumerator.html" title="Enumerated Files Routines." alt="" coords="912,3077,1063,3104"/>
+<area shape="rect" id="node82" href="$classGio_1_1FileInfo.html" title="FileInfo implements methods for getting information that all files should contain,..." alt="" coords="937,3128,1037,3155"/>
+<area shape="rect" id="node83" href="$classGio_1_1FileMonitor.html" title="Monitors a file or directory for changes." alt="" coords="925,3179,1050,3205"/>
+<area shape="rect" id="node84" href="$classGio_1_1FilenameCompleter.html" title="Completes partial file and directory names given a partial string by looking in the file system for c..." alt="" coords="897,3229,1077,3256"/>
+<area shape="rect" id="node85" href="$classGio_1_1IOStream.html" title="IOStream &#45; Base class for implementing read/write streams." alt="" coords="931,1912,1044,1939"/>
+<area shape="rect" id="node92" href="$classGio_1_1InetAddress.html" title="An IPv4/IPv6 address." alt="" coords="923,1963,1052,1989"/>
+<area shape="rect" id="node93" href="$classGio_1_1InputStream.html" title="Base class for implementing streaming input." alt="" coords="921,1608,1053,1635"/>
+<area shape="rect" id="node98" href="$classGio_1_1MenuAttributeIter.html" title="MenuAttributeIter &#45; A menu attribute iterator." alt="" coords="904,2013,1071,2040"/>
+<area shape="rect" id="node99" href="$classGio_1_1MenuItem.html" title="A menu item for use with Gio::Menu." alt="" coords="928,2064,1047,2091"/>
+<area shape="rect" id="node100" href="$classGio_1_1MenuLinkIter.html" title="MenuLinkIter &#45; A menu link iterator." alt="" coords="919,2115,1056,2141"/>
+<area shape="rect" id="node101" href="$classGio_1_1MenuModel.html" title="MenuModel &#45; An abstract class representing the contents of a menu." alt="" coords="923,2419,1051,2445"/>
+<area shape="rect" id="node104" href="$classGio_1_1MountOperation.html" title="Authentication methods for mountable locations." alt="" coords="909,2317,1066,2344"/>
+<area shape="rect" id="node105" href="$classGio_1_1Notification.html" title="User Notifications (pop up messages)." alt="" coords="924,2368,1051,2395"/>
+<area shape="rect" id="node106" href="$classGio_1_1OutputStream.html" title="Base class for implementing streaming output." alt="" coords="916,1659,1059,1685"/>
+<area shape="rect" id="node111" href="$classGio_1_1Permission.html" title="An object representing the permission to perform a certain action." alt="" coords="925,2672,1049,2699"/>
+<area shape="rect" id="node113" href="$classGio_1_1Resolver.html" title="Asynchronous and cancellable DNS resolver." alt="" coords="933,2469,1042,2496"/>
+<area shape="rect" id="node114" href="$classGio_1_1Settings.html" title="A high&#45;level API for application settings." alt="" coords="935,2520,1040,2547"/>
+<area shape="rect" id="node115" href="$classGio_1_1SocketAddressEnumerator.html" title="Enumerator type for objects that contain or generate SocketAddresses." alt="" coords="876,2571,1099,2597"/>
+<area shape="rect" id="node116" href="$classGio_1_1SocketClient.html" title="Helper for connecting to a network service." alt="" coords="921,2621,1054,2648"/>
+<area shape="rect" id="node117" href="$classGio_1_1SocketControlMessage.html" title="A Socket control message." alt="" coords="887,3280,1087,3307"/>
+<area shape="rect" id="node120" href="$classGio_1_1SocketListener.html" title="Helper for accepting network client connections." alt="" coords="914,3331,1061,3357"/>
+<area shape="rect" id="node123" href="$classGio_1_1TlsCertificate.html" title="TlsCertificate &#45; TLS certificate." alt="" coords="918,3381,1057,3408"/>
+<area shape="rect" id="node124" href="$classGio_1_1TlsDatabase.html" title="TlsDatabase &#45; TLS database type." alt="" coords="921,1760,1054,1787"/>
+<area shape="rect" id="node125" href="$classGio_1_1TlsInteraction.html" title="TlsInteraction &#45; Interaction with the user during TLS operations." alt="" coords="917,1811,1058,1837"/>
+<area shape="rect" id="node126" href="$classGio_1_1TlsPassword.html" title="TlsPassword &#45; TLS Passwords for prompting." alt="" coords="921,1861,1053,1888"/>
+<area shape="rect" id="node127" href="$classGio_1_1UnixFDList.html" title="UnixFDList &#45; An object containing a set of UNIX file descriptors." alt="" coords="926,2165,1049,2192"/>
+<area shape="rect" id="node128" href="$classGio_1_1VolumeMonitor.html" title="Monitors a file or directory for changes." alt="" coords="912,2216,1063,2243"/>
+<area shape="rect" id="node129" href="$classGlib_1_1Binding.html" title="Bind two object properties." alt="" coords="935,2267,1040,2293"/>
+<area shape="rect" id="node86" href="$classGio_1_1SimpleIOStream.html" title="A wrapper around an input and an output stream." alt="" coords="1175,1887,1333,1913"/>
+<area shape="rect" id="node87" href="$classGio_1_1SocketConnection.html" title="A socket connection." alt="" coords="1170,1937,1338,1964"/>
+<area shape="rect" id="node91" href="$classGio_1_1TlsConnection.html" title="TlsConnection &#45; TLS connection type." alt="" coords="1182,1760,1326,1787"/>
+<area shape="rect" id="node88" href="$classGio_1_1TcpConnection.html" title="A TCP SocketConnection." alt="" coords="1439,1912,1586,1939"/>
+<area shape="rect" id="node90" href="$classGio_1_1UnixConnection.html" title="A Unix domain SocketConnection." alt="" coords="1435,1963,1590,1989"/>
+<area shape="rect" id="node89" href="$classGio_1_1TcpWrapperConnection.html" title="Wrapper for non&#45;Gio::SocketConnection&#45;based, Gio::Socket&#45;based Gio::IOStreams." alt="" coords="1664,1912,1865,1939"/>
+<area shape="rect" id="node94" href="$classGio_1_1FilterInputStream.html" title="Filter Input Stream." alt="" coords="1171,1456,1337,1483"/>
+<area shape="rect" id="node97" href="$classGio_1_1UnixInputStream.html" title="UnixInputStream implements InputStream for reading from a unix file descriptor, including asynchronou..." alt="" coords="1173,1507,1335,1533"/>
+<area shape="rect" id="node95" href="$classGio_1_1BufferedInputStream.html" title="The buffered input stream implements FilterInputStream and provides for buffered reads." alt="" coords="1419,1481,1606,1508"/>
+<area shape="rect" id="node96" href="$classGio_1_1DataInputStream.html" title="An implementation of BufferedInputStream that allows for high&#45;level data manipulation of arbitrary da..." alt="" coords="1683,1481,1846,1508"/>
+<area shape="rect" id="node102" href="$classGio_1_1DBus_1_1MenuModel.html" title="MenuModel &#45; A D&#45;Bus Gio::MenuModel implementation." alt="" coords="1169,2393,1339,2420"/>
+<area shape="rect" id="node103" href="$classGio_1_1Menu.html" title="A simple implementation of MenuModel." alt="" coords="1210,2444,1298,2471"/>
+<area shape="rect" id="node107" href="$classGio_1_1FilterOutputStream.html" title="Filter Output Stream." alt="" coords="1166,1557,1342,1584"/>
+<area shape="rect" id="node110" href="$classGio_1_1UnixOutputStream.html" title="UnixOutputStream implements OutputStream for writing to a a unix file descriptor, including asynchron..." alt="" coords="1167,1659,1341,1685"/>
+<area shape="rect" id="node108" href="$classGio_1_1BufferedOutputStream.html" title="The buffered output stream implements FilterOutputStream and provides for buffered writes." alt="" coords="1413,1557,1612,1584"/>
+<area shape="rect" id="node109" href="$classGio_1_1DataOutputStream.html" title="An implementation of BufferedOutputStream that allows for high&#45;level data manipulation of arbitrary d..." alt="" coords="1677,1557,1852,1584"/>
+<area shape="rect" id="node112" href="$classGio_1_1SimplePermission.html" title="A Permission that doesn&#39;t change value." alt="" coords="1169,2672,1339,2699"/>
+<area shape="rect" id="node118" href="$classGio_1_1UnixCredentialsMessage.html" title="UnixCredentialsMessage &#45; A SocketControlMessage containing credentials." alt="" coords="1147,3229,1361,3256"/>
+<area shape="rect" id="node119" href="$classGio_1_1UnixFDMessage.html" title="UnixFDMessage — A GSocketControlMessage containing a GUnixFDList." alt="" coords="1175,3280,1333,3307"/>
+<area shape="rect" id="node121" href="$classGio_1_1SocketService.html" title="Make it easy to implement a network service." alt="" coords="1183,3331,1325,3357"/>
+<area shape="rect" id="node122" href="$classGio_1_1ThreadedSocketService.html" title="A threaded GSocketService." alt="" coords="1411,3331,1615,3357"/>
+</map>

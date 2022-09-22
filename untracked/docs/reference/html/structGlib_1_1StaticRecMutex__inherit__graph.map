@@ -1,0 +1,4 @@
+<map id="Glib::StaticRecMutex" name="Glib::StaticRecMutex">
+<area shape="rect" id="node1" title="Like Glib::RecMutex, but can be defined at compile time." alt="" coords="5,5,164,32"/>
+<area shape="rect" id="node2" href="$classGlib_1_1RecMutex.html" title=" " alt="" coords="24,80,145,107"/>
+</map>

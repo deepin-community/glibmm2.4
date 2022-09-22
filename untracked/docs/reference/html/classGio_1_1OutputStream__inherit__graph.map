@@ -1,0 +1,13 @@
+<map id="Gio::OutputStream" name="Gio::OutputStream">
+<area shape="rect" id="node1" title="Base class for implementing streaming output." alt="" coords="495,81,637,108"/>
+<area shape="rect" id="node5" href="$classGio_1_1FileOutputStream.html" title="FileOutputStream provides output streams that write their content to a file." alt="" coords="701,5,867,32"/>
+<area shape="rect" id="node6" href="$classGio_1_1FilterOutputStream.html" title="Filter Output Stream." alt="" coords="696,56,872,83"/>
+<area shape="rect" id="node10" href="$classGio_1_1MemoryOutputStream.html" title="Streaming output operations on memory chunks." alt="" coords="685,107,883,133"/>
+<area shape="rect" id="node11" href="$classGio_1_1UnixOutputStream.html" title="UnixOutputStream implements OutputStream for writing to a a unix file descriptor, including asynchron..." alt="" coords="697,157,871,184"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="348,81,447,108"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="169,81,300,108"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="5,81,121,108"/>
+<area shape="rect" id="node7" href="$classGio_1_1BufferedOutputStream.html" title="The buffered output stream implements FilterOutputStream and provides for buffered writes." alt="" coords="935,31,1133,57"/>
+<area shape="rect" id="node9" href="$classGio_1_1ConverterOutputStream.html" title="ConverterOutputstream &#45; Converter Output Stream." alt="" coords="931,81,1137,108"/>
+<area shape="rect" id="node8" href="$classGio_1_1DataOutputStream.html" title="An implementation of BufferedOutputStream that allows for high&#45;level data manipulation of arbitrary d..." alt="" coords="1185,31,1360,57"/>
+</map>

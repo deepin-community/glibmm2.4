@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classGlib_1_1ustring.html" title="Glib::ustring has much the same interface as std::string, but contains Unicode characters encoded as ..." alt="" coords="5,31,107,57"/>
+<area shape="rect" id="node2" href="$classGlib_1_1DBusObjectPathString.html" title="String class for D&#45;Bus object paths in Glib::Variant." alt="" coords="155,5,353,32"/>
+<area shape="rect" id="node3" href="$classGlib_1_1DBusSignatureString.html" title="String class for D&#45;Bus signatures in Glib::Variant." alt="" coords="159,56,349,83"/>
+</map>

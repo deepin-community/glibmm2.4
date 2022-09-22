@@ -1,0 +1,10 @@
+<map id="Gio::ConverterInputStream" name="Gio::ConverterInputStream">
+<area shape="rect" id="node1" title="ConverterInputstream &#45; Converter Input Stream." alt="" coords="89,379,285,405"/>
+<area shape="rect" id="node2" href="$classGio_1_1FilterInputStream.html" title="Filter Input Stream." alt="" coords="5,304,171,331"/>
+<area shape="rect" id="node3" href="$classGio_1_1InputStream.html" title="Base class for implementing streaming input." alt="" coords="39,229,171,256"/>
+<area shape="rect" id="node4" href="$classGlib_1_1Object.html" title=" " alt="" coords="89,155,188,181"/>
+<area shape="rect" id="node5" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="139,80,269,107"/>
+<area shape="rect" id="node8" href="$classGlib_1_1Interface.html" title=" " alt="" coords="220,155,335,181"/>
+<area shape="rect" id="node6" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="146,5,262,32"/>
+<area shape="rect" id="node7" href="$classGio_1_1PollableInputStream.html" title="PollableInputStream &#45; Interface for pollable input streams." alt="" coords="195,304,379,331"/>
+</map>

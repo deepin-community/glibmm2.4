@@ -1,0 +1,5 @@
+<map id="Glib::SpawnError" name="Glib::SpawnError">
+<area shape="rect" id="node1" title="Exception class for errors occuring when spawning processes." alt="" coords="5,155,136,181"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Error.html" title=" " alt="" coords="27,80,114,107"/>
+<area shape="rect" id="node3" href="$classGlib_1_1Exception.html" title=" " alt="" coords="11,5,131,32"/>
+</map>

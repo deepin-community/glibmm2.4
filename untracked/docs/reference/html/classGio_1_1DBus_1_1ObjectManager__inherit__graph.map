@@ -1,0 +1,8 @@
+<map id="Gio::DBus::ObjectManager" name="Gio::DBus::ObjectManager">
+<area shape="rect" id="node1" title="Base type for D&#45;Bus object managers." alt="" coords="113,229,307,256"/>
+<area shape="rect" id="node5" href="$classGio_1_1DBus_1_1ObjectManagerClient.html" title="Client&#45;side object manager." alt="" coords="5,304,199,345"/>
+<area shape="rect" id="node6" href="$classGio_1_1DBus_1_1ObjectManagerServer.html" title="Service&#45;side object manager." alt="" coords="223,304,416,345"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Interface.html" title=" " alt="" coords="153,155,267,181"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="145,80,275,107"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="152,5,268,32"/>
+</map>

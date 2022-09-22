@@ -1,0 +1,8 @@
+<map id="Gio::ThemedIcon" name="Gio::ThemedIcon">
+<area shape="rect" id="node1" title="Icon theming support." alt="" coords="45,304,177,331"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="5,229,104,256"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="45,80,176,107"/>
+<area shape="rect" id="node6" href="$classGlib_1_1Interface.html" title=" " alt="" coords="105,155,220,181"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="53,5,169,32"/>
+<area shape="rect" id="node5" href="$classGio_1_1Icon.html" title="This is a very minimal interface for icons." alt="" coords="129,229,207,256"/>
+</map>

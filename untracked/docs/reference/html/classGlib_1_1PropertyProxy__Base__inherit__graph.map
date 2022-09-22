@@ -1,0 +1,6 @@
+<map id="Glib::PropertyProxy_Base" name="Glib::PropertyProxy_Base">
+<area shape="rect" id="node1" title=" " alt="" coords="5,64,192,91"/>
+<area shape="rect" id="node2" href="$classGlib_1_1PropertyProxy.html" title="A PropertyProxy can be used to get and set the value of an object&#39;s property." alt="" coords="240,5,427,32"/>
+<area shape="rect" id="node3" href="$classGlib_1_1PropertyProxy__ReadOnly.html" title="See PropertyProxy()." alt="" coords="259,57,407,98"/>
+<area shape="rect" id="node4" href="$classGlib_1_1PropertyProxy__WriteOnly.html" title="See PropertyProxy()." alt="" coords="259,122,407,163"/>
+</map>

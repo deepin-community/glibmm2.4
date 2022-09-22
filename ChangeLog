@@ -1,0 +1,1622 @@
+2021-10-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.66.2
+
+2021-10-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::wrap_register_init(): Don't use g_quark_from_static_string()
+
+  Replace it by g_quark_from_string().
+  g_quark_from_static_string() shall not be used, if glibmm (but not glib)
+  is loaded and unloaded several times.
+  Fixes #96
+
+2021-10-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Binding, Gio::Application: Don't use g_quark_from_static_string()
+
+  Replace it by g_quark_from_string().
+  g_quark_from_static_string() can't be used for initializing static
+  data, if glibmm (but not glib) is loaded and unloaded several times.
+  Fixes #96
+
+2021-08-27  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Declare some copy assignment operators deleted (=delete)
+
+  Avoid warnings from the clang++ compiler.
+  
+  It's deprecated in C++ to implicitly declare a copy constructor, if there
+  is a user-defined copy assignment operator. Instead of declaring copy
+  assignment operators private without implementation, declare them deleted.
+
+2021-07-31  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Use GLib from the main branch in subproject
+
+2021-07-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  handle-built-files.py: Specify file encoding on generated files
+
+  The default file encoding is platform dependent in Python.
+  Better specify which encoding is preferred.
+
+2021-07-15  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::ListModel::get_object(): Don't try to cast to Glib::Object
+
+  Gio::ListModel::get_object() returns Glib::RefPtr<Glib::ObjectBase>.
+  Don't try to dynamic_cast it to Glib::Object. It would fail if the object
+  has been constructed as an interface, and e.g. has a Gio::File wrapper.
+  Fixes #93
+
+2021-07-10  talisein  <agpotter@gmail.com>
+
+  fileenumerator.hg: Remove refreturn to avoid memory leak
+
+2021-05-31  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::ustring: Remove extraneous GLIBMM_API
+
+  Deleted methods shall not be decorated with GLIBMM_API.
+  Fixes #92
+
+2021-05-20  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.66.1
+
+2021-05-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Documentation: Let links point to glibmm-2.4 and gtkmm-3.0 versions
+
+2021-05-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add dependencies to Doxygen tag files in subprojects
+
+  Doxygen in a main project shall not be called before tag files have been
+  created or updated in subprojects.
+
+2021-05-15  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Fix build as subproject without building documentation
+
+  * meson.build: If mm-common-get is not found in maintainer-mode
+  with 'required: false', try with 'required: true'.
+  Don't try to use tag_file, if documentation is not built.
+  * docs/reference/meson.build: Don't use variables from modules
+  that don't define doxytagfile. These are subprojects that don't build
+  their documentation.
+
+2021-05-06  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  build: Clean up MSVC build files
+
+  We can just drop the ignores for the C4251, C4530 and C4275 warnings at this
+  point, after cleaning up our headers
+
+2021-05-06  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  variantdbusstring.h: Drop GLIBMM_API decoration
+
+  There is no API to export in the class definitions here, so just remove the
+  GLIBMM_API decoration.  This will remove C4275 warnings from code including
+  the header.
+
+2021-05-06  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  fileattributeinfo.hg: Avoid exporting classes with std::string members
+
+  This will help us to also eliminate C4251 warnings from code that use the
+  FileAttributeInfo class.
+
+2021-05-06  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  ustring.h: Avoid exporting classes with std::string members
+
+  ...and templates that inherit std::string.  This will help us to also eliminate
+  C4251 warnings from code that use the ustring class and related items.
+
+2021-05-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::PatternSpec: Ignore deprecation of g_pattern_match()
+
+2021-05-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Subprojects can use meson.add_dist_script() if meson.version() >= 0.58.0
+
+  * meson.build:
+  * docs/reference/meson.build:
+  * gio/giomm/meson.build:
+  * glib/glibmm/meson.build:
+  Call add_dist_script() in a subproject, if meson.version() >= 0.58.0.
+  * examples/meson.build: Build examples/network/resolver if libsigc++ is
+  a subproject and meson.version() >= 0.58.0.
+  * tools/build_scripts/handle-built-files.py:
+  Use MESON_PROJECT_DIST_ROOT if it exists, else MESON_DIST_ROOT.
+  It exists if meson.version() >= 0.58.0.
+
+2021-04-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Make quiet installations possible
+
+  * tools/build_scripts/handle-built-files.py: Don't print names of
+  installed files if environment variable MESON_INSTALL_QUIET is set.
+  It is set by "meson install --quiet" in Meson 0.54.0 and newer.
+
+2021-04-09  Magne Oestlyngen  <magne@spacetec.no>
+
+  Variant: Fix so it works with C++20
+
+  C++20 changed some aspects of templates that broke variant.h on
+  some compilers (GCC 11).
+  
+  Ref: https://wg21.cmeerw.net/cwg/issue2237
+  
+    template<class T>
+    struct A {
+      A<T>();  // ok pre-C++20, now incorrect
+  //  A();     // correct for all versions
+    };
+  
+  This commit removes the "simple-template-id" from both the default
+  constructor (no args) and the explicit constructor (has args), even
+  though only the default constructor currently gives error on GCC 11.
+  Since both versions are wrong according to the issue referred to above
+  it is expected that GCC (and possibly other compilers) will be updated
+  to fail on both cases in the future.
+
+2021-04-08  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: No implicit_include_directories
+
+2021-03-26  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Make it possible to use glibmm as a subproject
+
+  glib and sigc++ can be subprojects of glibmm.
+
+2021-03-17  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add tools/defs_gen/enumextract.py
+
+  A Python script that can replace the Perl script tools/enum.pl.
+  Why? Just because I've got fond of Python.
+
+2021-03-13  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: examples and tests: Add dependency('threads')
+
+  Multithreaded examples and tests depend on 'threads'.
+  I noticed this when I started experimenting with subprojects.
+  Strange that the linker did not report it as an error long ago.
+
+2021-03-08  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  g[io|lib]mmconfig.h.*: Don't dllimport on MinGW
+
+  This will fix warnings when building items using glibmm and giomm with
+  MinGW/GCC.
+  
+  Please see: https://gitlab.gnome.org/GNOME/gtkmm/-/issues/90
+
+2021-03-06  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  tools/gen_scripts: Ignore gio/gwin32api-*.h
+
+  Ignore some new glib header files when generating
+  gio/src/gio_enums.defs and gio/src/gio_methods.defs.
+
+2021-03-03  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glib/src/binding.hg: Export Glib::manage()
+
+  The newly-added function was missing a GLIBMM_API annotation, causing this
+  function not to be exported.  Fixes build of the glibmm binding test
+  program on Visual Studio-style builds.
+
+2021-02-24  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Use relative paths to untracked/
+
+  The paths to the source code in untracked/ shall be relative to the
+  meson.build file, when library files are built from a tarball.
+  With absolute paths Meson may generate too long file names.
+  See gtkmm!61
+
+2021-02-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::MemoryInputStream: Ignore deprecation of g_memdup()
+
+2021-01-27  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.66.0
+
+2021-01-25  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  tests/glibmm_tls_client: Skip test, if socket can't be connected
+
+  This test sometimes fails in CI runs, probably for a reason that's out
+  of glibmm's control.
+  
+  Gio::Socket::create() can throw an exception. Put it in a try block.
+  See #84
+
+2021-01-14  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::SettingsSchemaSource: Wrap new_from_directory() and list_schemas()
+
+  Similar to commits by Daniel Boles in the master branch.
+  
+  See https://bugzilla.gnome.org/show_bug.cgi?id=783216,
+  issue #19 and MR !20
+
+2021-01-14  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib, Gio: Regenerate docs.xml and .defs files
+
+  Regenerated while the glib-2-66 branch was checked out from glib.
+
+2021-01-13  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Fix build-deprecated-api=false
+
+  * glib/glibmm/timeval.[cc|h]: Glib::TimeoutSource in glibmm/main.h
+  contains a TimeVal. Some TimeVal methods are used in glibmm/main.cc.
+  These methods must be declared and defined when glibmm is being built.
+  * glib/src/balancedtree.hg: Add _CONFIGINCLUDE(glibmmconfig.h).
+
+2021-01-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Deprecate Glib::BalancedTree in favour of std::map
+
+  or std::unordered_map. See issue #78
+
+2021-01-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add new enum values to Gio::MenuAttribute
+
+  See issue #78
+
+2021-01-12  Andreas Persson  <andreasp56@outlook.com>
+
+  Make Gio::ListStore accept Interfaces.
+
+  I noticed that I couldn't create a ListStore containing AppInfo objects,
+  because an AppInfo is not an Object but an Interface. ListStore seems to
+  work fine with Interfaces, so I just changed the static_assert.
+  
+  See MR !38 and issue #78.
+
+2021-01-12  Daniel Boles  <dboles@src.gnome.org>
+
+  Glib::Binding: Add set_manage() to not require a RefPtr
+
+  Allow users to call Glib::manage(RefPtr<Binding>) in order to defeat our
+  pre-existing and still default behaviour that a user must keep a RefPtr
+  to the Binding in order to keep it alive, instead letting it revert to
+  the C-style behaviour of staying alive as long as either object does.
+  
+  We use Glib::manage() to avoid the possible pitfall of a user calling
+  ->set_manage() on the result of bind_property*(), which might be empty.
+  
+  This patch has been modified by Kjell Ahlstedt.
+  This modified version stores the new instance data in a GQuark
+  instead of new member data, which would have broken ABI.
+  
+  Fixes https://gitlab.gnome.org/GNOME/glibmm/issues/62
+
+2021-01-11  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  docs/reference/Doxyfile.in: Remove obsolete entries
+
+2021-01-11  Daniel Boles  <dboles@src.gnome.org>
+
+  Glib::Binding: Clarify need to hold ref, poss empty objs
+
+  and move the documentation on lifetime away from bind_property_value()
+  up to the class description/intro.
+  
+  https://gitlab.gnome.org/GNOME/glibmm/issues/62
+
+2021-01-11  Daniel Boles  <dboles@src.gnome.org>
+
+  tests/glibmm_binding: Test that unbind() stops props syncing
+
+2020-12-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Binding, TimeZone: Ignore deprecation of some glib functions
+
+  g_binding_get_source(), g_binding_get_target() and g_time_zone_new()
+  are deprecated in glib 2.68. We can't use the replacement functions,
+  which are new in glib 2.68. We want to be able to build and run
+  with both glib 2.68 and older versions of glib.
+
+2020-12-11  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::MenuModel: Improve documentation of enums
+
+  Improve the documentation of enums Gio::MenuAttribute and Gio::MenuLink.
+  See #78
+
+2020-12-01  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.64.5
+
+2020-11-27  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  gmmproc: Fix compatibility with gtkmm 3.24.2
+
+  * tools/m4/class_shared.m4: Check if __FUNC_DECORATION__ is defined.
+  class_gtkobject.m4 in gtkmm 3.24.2 and older does not define it.
+  Fixes #82
+  
+  It's not necessary to push this patch to the master branch.
+  That branch is not compatible with gtkmm-3 anyway.
+
+2020-11-22  Tom Schoonjans  <Tom.Schoonjans@rfi.ac.uk>
+
+  Meson build: fix is_os_cocoa detection
+
+  The previous check didnt work as the compiler choked on the Objective-C code
+  that was dragged in by the Cocoa headers.
+  
+  This patch simplifies things by simply asking what system the host is
+  running on.
+
+2020-11-21  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.64.4
+
+2020-11-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Remove unnecessary TODO and README files
+
+2020-11-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  generate_wrap_init.pl.in: Use g_type_ensure()
+
+  Call g_type_ensure(SomeClass::get_type()).
+  
+  Redefining the G_GNUC_CONST preprocessor macro does not have the
+  intended effect (SomeClass::get_type() actually being called) if
+  the package is compiled and linked with the -flto option.
+  LTO = link time optimization
+  
+  https://mail.gnome.org/archives/gtkmm-list/2020-November/msg00009.html
+
+2020-11-01  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::File docs: Fix names of thrown exceptions
+
+  and remove unnecessary TODO comments in several files.
+
+2020-10-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  glib/glibmm.h: Describe how to use glibmm with meson
+
+2020-10-01  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Fix versioning on macOS for libglibmm_generate_extra_defs
+
+2020-09-30  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Fix versioning on macOS
+
+  See https://github.com/libsigcplusplus/libsigcplusplus/pull/65
+
+2020-09-13  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Add missing Glib::Value and Variant documentation
+
+  The value_basictypes.h and variant_basictypes.h files, which are generated
+  from .m4 files, were not included in the input to Doxygen.
+
+2020-09-07  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::BalancedTree docs: Recommend std::map or std::unordered_map
+
+2020-08-31  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  class_interface.m4: Export the generated private class
+
+  As in the case of class_shared.m4, we need to do the same for
+  class_interface.m4 as well, in order to export the items in the private
+  headers fully.
+
+2020-08-29  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  gmmproc: Make h2def.py recognize more macros
+
+  When parsing function declarations, remove G_DECLARE_DERIVABLE_TYPE
+  and GDK_DECLARE_INTERNAL_TYPE.
+
+2020-08-28  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glib/glibmm/private/*.h: Decorate the classes with GLIBMM_API
+
+  This is done for completeness' sake, as we are doing for the private headers that we
+  generate.
+
+2020-08-28  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  class_shared.m4: Decorate private class prototype
+
+  ...when using _WRAP_GOBJECT with a function decoration.  This will help expose
+  the class definition in the generated private/*_p.h in the built DLLs/LIBs that
+  is built with Visual Studio or clang-cl.
+
+2020-07-23  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Use Meson-style DLL and .lib naming if requested
+
+  To make things more consistent and less prone to confusion, if 'USE_MESON_LIBS'
+  is specified in the NMake command line, build the DLLs and .lib's that are
+  named like the Meson counterparts.  Binaries built with Meson+Visual Studio
+  and the ones that are built via NMake using 'USE_MESON_LIBS' are
+  interchangeable, provided that they are built with the same Visual Studio
+  version.
+
+2020-07-22  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Fix generating [glib|gio]mm[config.h|.rc]
+
+  This fixes the build process so that we won't need to generate them
+  unnecessarily (i.e. when building from a release tarball built with autotools).
+  
+  Also streamline the build process that we no longer need to explicitly run
+  the 'prep-git-build' target before building, where we generate
+  [glib|gio]mm[config.h|.rc], and if needed, gmmproc and generate_wrap_init.pl,
+  as part of the normal 'all' target if necessary
+
+2020-07-14  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Support ARM64 Windows builds
+
+  This will make the NMake Makefiles capable of building ARM64 binaries of glibmm
+  and giomm, which can be used on Windows 10 on ARM systems.
+
+2020-07-11  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  gmmproc: _CLASS_BOXEDTYPE, _CLASS_OPAQUE_COPYABLE: Fix move assignment
+
+  Add a std::move() to avoid copying.
+  Fixes #76
+
+2020-06-29  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  docs/reference/: Update for Doxygen >= 1.8.16
+
+  * docs/reference/meson.build: Doxygen 1.8.16 and later does not store
+  tag file names in the html files. This requires changes in meson.build
+  and in doc-install.pl (in mm-common). Otherwise references to other modules
+  won't be updated in the html files when they are installed.
+  * docs/reference/Doxyfile.in: Remove PERL_PATH and MSCGEN_PATH.
+  Doxygen since version 1.8.0 does not use them.
+
+2020-06-18  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Meson/Visual Studio builds: Include toolset version by default
+
+  This makes the built DLL and .lib's contain the toolset version if the build is
+  carried out using Visual Studio 2015 or later, unless the
+  'msvc14x-parallel-installable' option is set to be false during configuration.
+  
+  The reasoning behind this change is that there are subtle problems when, for
+  instance, one tries to link to a Visual Studio 2015-built glibmm when building
+  gtkmm and libxml++ with Visual Studio 2017 or 2019.  This is unfortunate as
+  Microsoft did try hard to make interoperating between binaries built with
+  Visual Studio 2015, 2017 and 2019 as easy as possible in terms of ABI and API,
+  but unfortunately this hits the corner cases where this compatibility does not
+  work.
+  
+  As the name suggests, this attempts to make Visual Studio 2015, 2017 and 2019
+  builds share a single set of underlying C DLLs easier, while avoiding breakages
+  caused by such subtle differences.
+
+2020-06-16  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Fix building GIO tests/examples
+
+  Make sure we look for the GIO headers first in this build tree or source tree
+
+2020-06-16  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Clean up building tests and examples
+
+  Instead of hand-written rules, just make use of what we have to generate the
+  rules on the fly for most of the tests and examples, since the rules are more
+  or less the same for each of the test and example programs.  We only need to
+  single-out the ones that aren't buildable under Windows and those that have
+  multiple programs under each directory, as opposed to one example/test program
+  per directory.
+  
+  Even for those directories that have multiple example programs, we can pretty
+  easily generate the rules for them.
+  
+  Also remove repeated parts that were added by accident.
+  
+  This can shrink the NMake Makefiles by a bit.
+
+2020-06-15  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glib/glibmm/ustring.h: Fix building on Visual Studio 2015
+
+  Commit 8b8af81f accidentally changed the macro check from '_MSC_VER' to
+  'MSC_VER', fix that, so that things build correctly on Visual Studio 2015
+
+2020-06-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Update README.win32
+
+  Let people know that it is recommended (and even required at some
+  points) to use the same Visual Studio version for building glibmm and
+  dependent software, even for Visual Studio 2015, 2017 and 2019.
+
+2020-06-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Distinguish between MSVC 2015, 2017 and 2019
+
+  It was found that we cannot rely on the fact that Visual Studio
+  2015~2019 tried very hard to be binary compatible, as there are corner
+  cases when linking against glibmm built with Visual Studio 2015 with
+  builds done by Visual Studio 2017 and 2019 where the code will fail to
+  link and the DLLs are therefore not ABI-compatible.  Note that the
+  libsigc++ DLLs, however, are ABI compatible between these 3 Visual
+  Studio versions.
+  
+  As a result, for the DLL and LIB names, use 'vc140' for Visual Studio
+  2015 builds, 'vc141' for Visual Studio 2017 builds and 'vc142' for
+  Visual Studio 2019 builds, according to the toolset versions as defined
+  by Microsoft.
+  
+  For people that may have previously built glibmm with Visual Studio 2017
+  or 2019, which had 'vc140' in the built .lib and DLL, an NMake option
+  'USE_COMPAT_LIBS' is added to make building such binaries with 'vc140'
+  easier, if needed.
+
+2020-06-03  Daniel Boles  <dboles@src.gnome.org>
+
+  propertyproxy_base: Fix using notify w/o prop name
+
+  GLib has now specified that if you want to connect to a signal without a
+  detail argument, you omit the `::`. So, glibmm users previously
+  connecting to `notify::` to listen for changes to all properties broke.
+  Fix that by only passing `notify` i.e. no superfluous `::` in that case.
+  
+  Close https://gitlab.gnome.org/GNOME/glibmm/-/issues/74
+  Close https://gitlab.gnome.org/GNOME/glibmm/-/merge_requests/35
+
+2020-06-02  Daniel Boles  <dboles@src.gnome.org>
+
+  ustring: Silence warning if MSC_VER is undefined/0
+
+2020-05-21  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  tools/defs_gen/*.py: Specify that this is python3 code
+
+  Specify #!/usr/bin/env python3, making it unnecessary to have a python
+  command which is a link to python3.
+  In h2def.py, use the built-in set() instead of Set() from the sets module.
+
+2020-04-11  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  tools/m4/compare.m4: Allow decorating comparison operators
+
+  This allows one to pass in deocrations for the comparison operators so
+  that those decorations may be defined as compiler directives to export
+  symbols in a more fine-grained manner.
+
+2020-04-08  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  tools/gmmproc.in: Add a comment
+
+2020-04-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Set default value of the 'warnings' option to 'min'
+
+  * meson.build: Use dist-warnings when a tarball is tested by
+  'ninja dist' or 'meson dist'. Check if generate-binding.py exists, if not
+  maintainer-mode. Add a better error message if mm-common-get is required
+  but not found.
+  * meson_options.txt: Set default value of the 'warnings' to 'min'.
+  Add 'dist-warnings' with default value 'fatal'.
+
+2020-04-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Bump version
+
+  We need to update the version so that we can be able to check whether we
+  have enough support in gmmproc to be ready to use __declspec(dllexport)
+  instead of gendef.exe to export symbols for modules that build on top of
+  the glibmm-2.4 branch, as they may well depend on older stable glibmm-2.4
+  versions that do not have such support.
+
+2020-04-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  gio/src/*.hg: Mark all _WRAP_ENUM() with decl_prefix
+
+  As per Kjell's suggestions, make things more future-proof by marking all
+  _WRAP_ENUM()'s with 'decl_prefix GIOMM_API'.
+
+2020-04-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glib/src/*.hg: Mark all _WRAP_ENUM() with decl_prefix
+
+  As per Kjell's suggestions, make things more future-proof by marking all
+  _WRAP_ENUM()'s with 'decl_prefix GLIBMM_API'.
+
+2020-04-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  gio/src: Apply `decl_prefix GIOMM_API` to _WRAP_ENUM
+
+  This way, we can ensure that the headers generated with gmmproc marks
+  the template<> classes with GIOMM_API, so that we can export them in
+  Visual Studio builds.
+  
+  Note that for those _WRAP_ENUM calls marked with NO_GTYPE, there is no
+  need to add 'decl_prefix ...'.
+
+2020-04-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glib/src: Apply `decl_prefix GLIBMM_API` to _WRAP_ENUM
+
+  This way, we can ensure that the headers generated with gmmproc marks
+  the template<> classes with GLIBMM_API, so that we can export them in
+  Visual Studio builds.
+  
+  Note that for those _WRAP_ENUM calls marked with NO_GTYPE, there is no
+  need to add 'decl_prefix ...'.
+
+2020-04-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  tools/[gerror|enum].m4: Make template<> classes exportable
+
+  Allow to apply the decl_prefix argument onto the template<> classes that
+  we generate for the _WRAP_GERROR and _WRAP_ENUM directives in the
+  various *.hg files, if specified.
+
+2020-03-22  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.64.2
+
+2020-03-20  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::build_filename(): Fix the template overload
+
+  and add some tests to tests/glibmm_buildfilename/main.cc.
+  
+  Fixes #71
+
+2020-03-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Install generate_extra_defs.h
+
+  Fixes #70
+
+2020-03-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  README: Fix a misspelling
+
+2020-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.64.1
+
+2020-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib: Add missing #includes
+
+  Fixes #69
+
+2020-03-17  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.64.0
+
+2020-03-17  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Regex docs: Clarify the deprecation of match() and match_all()
+
+  See MR !26
+
+2020-03-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib, Gio: Regenerate docs.xml and .defs files
+
+  and update gio/src/gio_signals.defs.patch
+
+2020-03-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Regex: Deprecate some uses of match() and match_all()
+
+  Deprecate use of rvalue string references, such as temporary values.
+  
+  See issue #66 and MR !26
+
+2020-03-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add Glib::canonicalize_filename()
+
+  Fixes #59
+
+2020-03-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add a templated Glib::build_filename() overload
+
+  that uses Glib::StdStringView. It avoids some unnecessary string copies.
+  
+  Fixes #34
+
+2020-03-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add Glib::UStringView and Glib::StdStringView
+
+  See issue #34
+
+2020-03-15  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::MainContext: Add push/pop/get_thread_default()
+
+  See issue #56
+
+2020-03-15  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::get_host_name(): Return a Glib::ustring
+
+  g_get_host_name() returns a UTF-8 string.
+
+2020-03-15  scx  <scx.mail@gmail.com>
+
+  Add Glib::get_host_name()
+
+  Wraps g_get_host_name() from glib.
+  Return a name for the machine.
+  
+  Closes GNOME/glibmm#58
+
+2020-03-15  scx  <scx.mail@gmail.com>
+
+  Add Glib::get_user_runtime_dir()
+
+  Wraps g_get_user_runtime_dir() from glib.
+  Returns a directory that is unique to the current user on the local system.
+  
+  Closes GNOME/glibmm#57
+
+2020-03-14  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  README: Describe building with Meson and Autotools
+
+2020-03-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::DBus::Message::get_unix_fd_list(): Add refreturn
+
+  Fixes #68
+
+2020-03-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  glibmmconfig.h.in: Add GLIBMM_CAN_USE_THREAD_LOCAL for non-Windows builds
+
+  Define GLIBMM_CAN_USE_THREAD_LOCAL, if its config test program succeeds.
+
+2020-03-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  m4: Apply function decoration more thoroughly
+
+  Apparently more items in the generated code must be marked with the
+  function decoration that is specified, otherwise the exported symbols
+  will not be complete.
+
+2020-03-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  meson: Do not allow static MSVC-style builds
+
+  The Visual Studio build files never really supported static builds, so
+  disallow that for now, until we can make sure that is tested better.
+
+2020-03-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Drop gendef
+
+  We are now using __declspec(dllexport) to export symbols from the glibmm
+  and giomm DLLs, so we no longer need to have gendef around.
+
+2020-03-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glibmm: Update glibmmconfig.h.[in|meson] for MSVC
+
+  Drop all the compatibility bits for Visual Studio 2013 as Visual Studio
+  2013 does not have sufficient C++11 support to build glibmm.
+  
+  Make sure that we do enable GLIBMM_CAN_USE_THREAD_LOCAL as Visual Studio
+  2015 or later has thread_local, but we must also ensure that we do not
+  mark DispatcherNotifier for export as a result, since thread_local
+  conflicts with __declspec(dllexport).
+  
+  Also update for Visual Studio 2017+ as the compiler does allow static
+  members to be initialized inline to std::string::npos
+  (GLIBMM_HAVE_ALLOWS_STATIC_INLINE_NPOS), but use a work
+  around for pre-Visual Studio 2017 so that we do not get a linker error
+  as GLIBMM_HAVE_ALLOWS_STATIC_INLINE_NPOS is not supported.
+
+2020-03-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Visual Studio builds: build giomm without gendef
+
+  Make sure that we are defining GIOMM_API as __declspec(dllexport) when
+  building giomm and so stop the use of gendef.exe.  We are now ready to
+  drop gendef from the glibmm sources.
+
+2020-03-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  gio/giomm/*.h: Mark classes and functions with GIOMM_API
+
+  This prepares the build to use compiler directives to export symbols, in
+  our bid to drop gendef.exe.
+
+2020-03-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  gio/src/*.hg: Mark classes and functions with GIOMM_API
+
+  This prepares the build to export symbols using compiler directives, in
+  our bid to drop gendef.exe.  We will also mark pre-declarations of usage
+  of glibmm class items with GLIBMM_API as well.
+
+2020-03-12  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  build: Do not use gendef.exe for glibmm
+
+  Clean up the build files a bit and update the glibmmconfig.h.[in|meson] so that
+  we use __declspec(dllexport) when GLIBMM_BUILD is defined (i.e. during the
+  build of glibmm) on Visual Studio.
+  
+  Also, for the meson builds, disable warnings 4251 and 4275 as they all relate
+  to building DLLs regarding symbol export, which is harmless as we know clearly
+  that we are indeed building DLLs in our case, and we have already set
+  GLIBMM_API appropriately
+
+2020-03-09  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Fix 'install' for Meson tarballs
+
+  We need to look for headers from under untracked/
+
+2020-03-09  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glib/src: Decorate classes and methods with GLIBMM_API
+
+  This prepares for us to export symbols using compiler directives, so that we
+  can eventually retire gendef.exe.  This also makes the scripts place GLIBMM_API
+  as appropriate for the generated Glib:Error classes and the wrap() method.
+
+2020-03-09  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  tools: Allow generating Glib:Error class with decorations
+
+  This allows one to export the generated Glib::Error class with decorations so
+  that one may be able to use this to export it using compiler directives.
+  
+  Currently this only allows specifications that end with _API, and this also
+  decorates the `friend wrap_init() method in the generated Glib::Error class
+
+2020-03-09  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  tools/m4: Allow one to decorate the generated wrap() prototype
+
+  This allows the compiler to use the decoration macro to export those methods
+  from the generated items
+
+2020-03-09  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glib/glibmm/*.h: Mark classes and methods with GLIBMM_API
+
+  This prepares the code to use __declspec(dllexport) to export all symbols, so
+  that we can eventually bid farewell to gendf.exe
+
+2020-03-07  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  meson: Use /utf-8 for Visual Studio builds
+
+  This way, we can avoid warning/error C4819 when building glibmm due to unicode
+  handling issues in the compiler, which is likely to pop up on East Asian
+  locales on Windows.
+  
+  We need to ignore warning C4828 when building gendef.exe though with this.
+
+2020-03-05  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Revert "meson: Don't use `objects:` in glibmm, giomm"
+
+  This reverts commit b03c6d558d912ab66cafac37d5c9fdd63e46d61b.
+  
+  Apparently that commit caused the g++ linker to optimize most of the
+  items out from the final library.
+
+2020-03-05  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  meson: Don't use `objects:` in glibmm, giomm
+
+  Instead, use or extend `link_with:`
+  
+  Please see: https://gitlab.gnome.org/GNOME/glibmm/-/merge_requests/28#note_731510
+
+2020-03-05  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  MSVC NMake: Allow builds from Meson-generated tarballs
+
+  This adds rules to the NMake Makefiles so that they can find the sources under
+  $(srcroot)/untracked, and thus will not need to re-generate the sources.
+  
+  However, for builds from such tarballs, it is necessary to do
+  'nmake /f Makefile.vc CFG=$(CFG) prep-git-build' so that the resource scripts
+  and config headers are generated, prior to performing the build.
+  
+  Please note that glibmm_generate_extra_defs-2.x is now built as a DLL with the
+  NMake Makefiles as well.
+
+2020-03-05  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glib/glibmmconfig.h.in: Define GLIBMM_CAN_USE_THREAD_LOCAL on MSVC
+
+  Visual Studio 2015 (the minimum Visual Studio compiler that we can use
+  for glibmm) supports this, so turn this on.
+
+2020-03-05  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  meson.build: Ignore warning C4146
+
+  Warning C4146 is often part-of-life when building items on Visual
+  Studio, and since we are sure about the things we want to check for,
+  we can ignore this too.
+
+2020-03-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add support for building glibmm with Meson
+
+  glibmm can be built with either Autotools or Meson.
+  
+  These new files have been copied from the master branch, and some of them
+  have been changed.
+  
+  The parts that concern Windows and MSVC have been created by Chun-wei Fan.
+  
+  See MR !28
+
+2020-03-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  tools: Fix 'meson dist'
+
+  The former method of using gendef.exe to generate the import library for
+  glibmm_generate_extra_defs somehow breaks 'meson dist' and builds from
+  release tarballs, unless one builds giomm first.
+  
+  Fix this by using the __declspec(dll[ex|im]port) directives, since
+  glibmm_generate_extra_defs is a simple utility library.
+
+2020-03-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  examples/thread/dispatcher.cc: Make C++17 compliant
+
+  std::mem_fun() and std::unary() have been removed from C++17, so port
+  away from using these.
+
+2020-03-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  glibmm_interface_move test: Avoid warnings in test_IFace_get_type()
+
+  ...for Visual Studio builds, since we don't really get unused function
+  warnings from the TEST_IFACE items.  Plus, we don't have glib autoptr
+  support in Visual Studio builds, either.
+
+2020-03-04  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  dbusconnection.ccg: Include giomm/unixfdlist.h on *NIX only
+
+  In Meson builds, we don't even generate giomm/unixfdlist.h unless we are
+  building for *nix, and we aren't using the items there on non-*nix
+  builds.
+
+2020-03-03  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Prepare existing files for building with Meson
+
+  * examples/network/resolver.cc: Don't include config.h. It's not used.
+  * glib/glibmm/ustring.cc: Check if GLIBMM_SIZEOF_WCHAR_T is defined.
+  * tools/generate_wrap_init.pl.in:
+  * tools/gmmproc.in: Change '\@' to '\ @'. Meson's configure_file()
+  removes a backslash immediately before an at-sign.
+
+2020-02-27  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  generate-msvc.mak: Correct path to find gmmproc PERL modules
+
+  The GLIBMM_MODULE_NAME should be glibmm-2.x, not giomm-2.x
+
+2020-02-26  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Add targets to ease build from GIT checkouts
+
+  This will enable one to generate the following files:
+  
+  MSVC_NMake/glibmm/glibmmconfig.h
+  MSVC_NMake/glibmm/glibmm.rc
+  MSVC_NMake/giomm/giommconfig.h
+  MSVC_NMake/giomm/giomm.rc
+  
+  when building from a GIT checkout.
+  
+  This will also enable one to generate the following files:
+  tools/gmmproc
+  tools/generate_wrap_init.pl
+  
+  from a GIT checkout or from a source tree unpacked from a release tarball so
+  that one can use these to build directly from a GIT checkout using NMake,
+  or to have gmmproc and generate_wrap_init.pl ready to use to build other
+  -mm libraries.
+
+2020-02-26  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  README.win32: Mention that XML::Parser is required for builds from GIT
+
+  The gmmproc PERL script actually requires the XML::Parser PERL module to be
+  installed for the PERL interpreter.
+
+2020-02-25  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: "Install" gmmproc items
+
+  ...so that one may be able to use these in the future for other -mm packages.
+  
+  Also update the header installation as they could have been generated during
+  the build.  Update README.win32 to indicate building from a GIT checkout is
+  better supported, and how one may carry this build out.
+
+2020-02-25  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  MSVC_NMake: Re-order build rules
+
+  This way we can avoid re-compilation of wrap_init.cc sources in builds from a
+  release tarball.
+
+2020-02-25  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  MSVC_NMake: Add rules to generate and build sources
+
+  ...from a GIT checkout, from the various .ccg/.hg and the *.[cc|h].m4 sources,
+  as well as the wrap_init.cc sources.  This will obviously require PERL, as well
+  as a Cygwin or MSYS installation that has a working m4 executable for Windows
+  for this to work.  Note that release tarballs continue to build on Visual
+  Studio as they did before, without the need for PERL nor m4.
+  
+  Note that this does not yet support generating [glib|gio]mmconfig.h nor
+  [glib|gio]mm.rc from their .in counterparts, as well as tools\gmmproc
+  and tools\generate_wrap_init.pl, which will be done in a later commit.
+
+2020-02-25  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  MSVC_NMake: Avoid hard-coding versions
+
+  Fix the update on building glibmm_generate_extra_defs-x.y.lib and just use
+  macros instead, to ease maintenance.
+
+2020-02-24  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Use PDBVER instead of VSVER for toolset
+
+  Since this is the C++-11 series of glibmm, and Visual Studio 2015~2019
+  share the same CRTs, let them all use the PDB version (v14) as binaries
+  in this case should be interchangeable.  For Visual Studio 2013, the PDB
+  version is the same as VSVER (v12), so 2013 builds will remain separate.
+
+2020-02-24  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: build glibmm_generate_extra_defs-2.4.lib
+
+  Since this is entirely buildable by Visual Studio, build it as well and see
+  whether we can use this to allow builds from GIT checkouts for other -mm
+  libraries with MSVC builds.
+  
+  Copy this .lib and its header upon 'install'.
+
+2020-02-07  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  MSVC_NMake/config-msvc.mak: Correct libsigc++ libname
+
+  libsigc++'s Meson build files have been corrected to output
+  'sigc-2.0.lib', like the autotools builds, so correct the library name
+  here.
+
+2020-01-05  Daniel Boles  <dboles.src@gmail.com>
+
+  Variant: Avoid . to not split an intro doc comment
+
+  Doxygen interprets the first . to mean the end of the introductory
+  blurb, so that resulted in this sentence suddenly ending after the "i."
+  in "i.e." in the short version and having a line break there in the long
+
+2019-12-27  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake: Split outdir by toolset version
+
+  This reduces the likelihood of accidently mixing binaries linked against
+  different CRTs in a single glibmm build tree.
+
+2019-12-26  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Use /utf-8 where available
+
+  This avoids miscompilations under certain locales (Chinese, Japanese and
+  Korean in particular) where Unicode sequences are not properly handled
+  by the Visual Studio compiler.
+
+2019-12-26  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Add USE_MESON_LIBS
+
+  This makes it easier for builds that use C++ dependencies that are built
+  with Meson, where applicable.
+
+2019-12-20  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::AsyncResult: Improve the class description
+
+  Fixes #27
+
+2019-11-22  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Regex doc: Note that Glib::ustring must be used in match methods
+
+  See issue #66 and MR !25
+
+2019-11-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Avoid unnecessary conversions between std::string and Glib::ustring
+
+  A few implicit conversions in tests/ have been kept. They are probably
+  deliberate, to test implicit conversion. Inspired by issue #65
+
+2019-11-16  Thomas Holder  <thomas.holder@schrodinger.com>
+
+  fix ustring::insert(iterator, In, In)
+
+2019-11-15  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Binding: Explain why SlotTransform takes GValue*
+
+  Fixes #61
+
+2019-11-09  Daniel Boles  <dboles.src@gmail.com>
+
+  Binding: no point to set target value if got false
+
+  If we return false, GBinding ignores target GValue, so there’s no point
+  setting it. Besides, if the transform function returned false, that says
+  they couldn't calculate a target value, so they shouldn’t assign to `to`
+  
+  I default-construct primitive `T_to`s in case anyone *was* reading those
+  for some daft reason, so they get a zero-initialised value instead of UB
+
+2019-11-09  Daniel Boles  <dboles.src@gmail.com>
+
+  tests/glibmm_binding: Add basic test inc transform
+
+  A basic test is better than nothing, and I propose to change how the
+  transform function works so want to be fully confident it still does.
+
+2019-11-09  Daniel Boles  <dboles.src@gmail.com>
+
+  Binding: Move SlotTypeTransform up and document it
+
+  This is more maintainable than all the arguments to all the overloads of
+  bind_property() manually repeating the signature in their documentation,
+  plus more user-friendly as we document it, users can use the typedef, &c
+
+2019-11-09  Daniel Boles  <dboles.src@gmail.com>
+
+  Binding: Better explain purpose of SlotTransform,
+
+  and use better formatting for it too.
+
+2019-11-03  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::ustring_Iterator: Explicitly declare copy assignment
+
+  This disables a warning from g++ 9.2 (abbreviated here):
+  
+  In member function ‘bool Glib::ustring::validate(Glib::ustring::iterator&)’:
+  error: implicitly-declared ..... is deprecated [-Werror=deprecated-copy]
+   1206 |   first_invalid = iterator(string_.begin() + (valid_end - pdata));
+  note: because ..... has user-provided .....
+   1066 | inline ustring_Iterator<T>::ustring_Iterator(
+          const ustring_Iterator<std::string::iterator>& other)
+
+2019-10-24  Mike Fleetwood  <mike.fleetwood@googlemail.com>
+
+  Correct spelling of spawn_async_with_pipes() in doc comment
+
+2019-10-22  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::DBus::Connection: Make the wrap() function thread-safe
+
+  Add a std::mutex that guarantees that two threads don't create C++
+  wrappers for the same GDBusConnection instance.
+  
+  Fixes #56
+
+2019-10-09  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  NEWS: Add a missing issue number
+
+2019-09-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.62.0
+
+2019-09-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Fix comments in tools/test_scripts/testheaders.sh
+
+2019-09-17  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Checksum, DateTime, TimeZone: Add Glib::Value<> specializations
+
+  With Glib::Value<> specializations these classes can be used in
+  Glib::Value<> and _WRAP_PROPERTY.
+  See https://mail.gnome.org/archives/gtkmm-list/2019-April/msg00012.html
+
+2019-09-17  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Deprecate Glib::TimeVal
+
+  GTimeVal has been deprecated in glib.
+  
+  * examples/dbus/server_without_bus.cc:
+  * examples/dbus/session_bus_service.cc: Replace TimeVal by DateTime.
+  * gio/src/fileinfo.[ccg|hg]: Deprecate [set_]modification_time().
+  Add set/get_modification_date_time().
+  * glib/glibmm/timeval.[cc|h]: Deprecate most of TimeVal.
+  * glib/src/date.[ccg|hg]: Deprecate set_time(const GTimeVal& timeval).
+  * glib/src/datetime.[ccg|hg]: Deprecate create_now_local/utc(const TimeVal& tv)
+  and to_timeval(). Add create_from_iso8601(), format_iso8601() and
+  operator bool().
+  * tools/m4/convert_glib.m4: Add a conversion for DateTime.
+
+2019-09-17  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Property: Update for compatibility with Gtk::Builder
+
+  When an object is created by GtkBuilder, the GObject-derived C object is
+  created and its properties set before there is a C++ wrapper to store
+  the property values in. Glib::custom_set_property_callback() stores
+  property values in a data structure reached via a GQuark in the object.
+  PropertyBase::lookup_property() copies those property values to the
+  PropertyBase objects when the C++ wrapper is created.
+
+2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::SocketControlMessage: Add add_deserialize_func()
+
+  The deserialize vfunc in GLib is a class virtual function (not associated
+  with an instance). Such functions don't exist in C++. But it must be wrapped
+  in one way or another. g_socket_control_message_deserialize() assumes that
+  all subclasses of GSocketControlMessage override this vfunc. A user-program
+  can crash, if any subclass does not.
+  
+  This patch adds API by adding code from the master branch. Fixes #52
+
+2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::Application: Add add_option_group()
+
+  Fixes #46
+
+2019-09-16  Daniel Boles  <dboles@src.gnome.org>
+
+  Property: Add const get_proxy() returning ReadOnly
+
+  We could only get_proxy() if non-const and with a read/write Proxy. This
+  resolves that so that we can get a read-only proxy from a const Property
+  (without having to construct manually from the instance/name as before).
+  
+  Close https://gitlab.gnome.org/GNOME/glibmm/issues/44
+
+2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Property_ReadOnly: get_proxy() can be const
+
+  Compare commit bfe785f44dffd7fcd4457f96b7b927092d08ee55 by Daniel Boles.
+
+2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add Gio::DBus::ObjectManager*
+
+  Add Gio::DBus::ObjectManager, Gio::DBus::ObjectManagerClient and
+  Gio::DBus::ObjectManagerServer. Fixes #43
+
+2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Add Gio::DBus::ObjectProxy and Gio::DBus::ObjectSkeleton
+
+  In preparation for adding Gio::DBus::ObjectManager, ObjectManagerClient
+  and ObjectManagerServer. See issue #43.
+
+2019-09-15  Krzysztof Piecuch  <piecuch@protonmail.com>
+
+  ustring: Add make_valid()
+
+  make_valid() replaces all non-UTF8 characters with replacement
+  character (U+FFFD). Allows manipulating with ustring after you find
+  out by ustring::validate() that it's not an UTF-8 string and you
+  need to rescue it somehow. This wraps g_utf8_make_valid().
+  
+  https://bugzilla.gnome.org/show_bug.cgi?id=780075
+  See also issue #40
+  
+  This commit includes part of MR !11 by Martin Ejdestig <marejde@gmail.com>,
+  fixing a memory leak in the original make_valid().
+
+2019-09-15  Daniel Boles  <dboles@src.gnome.org>
+
+  ustring: Add sprintf(), wrapping g_strdup_printf()
+
+  This is a manually squashed version of several commits in the master branch.
+  Squashed by Kjell Ahlstedt.
+  
+  Fixes #21
+
+2019-09-15  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib, Gio: Regenerate docs.xml and .defs files
+
+2019-09-02  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::SocketControlMessage: Add deserialize_vfunc_callback()
+
+  The deserialize vfunc in GLib is a class virtual function (not associated
+  with an instance). Such functions don't exist in C++. But it must be wrapped
+  in one way or another. g_socket_control_message_deserialize() assumes that
+  all subclasses of GSocketControlMessage override this vfunc. A user-program
+  can crash, if any subclass does not.
+  
+  This patch that does not add API. A more complete fix can be committed,
+  when API can be added. Fixes #52
+
+2019-08-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Disable warnings from deprecated GTimeVal and GTime
+
+  GTimeVal and GTime have been deprecated in glib.
+  They can't be deprecated in the stable glibmm-2-60 branch now.
+  This patch makes it possible to build glibmm-2.60.x against the newest glib.
+  This affects Glib::TimeVal, Glib::Date, Glib::DateTime and Gio::FileInfo.
+
+2019-07-22  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Revert "Glib, Gio: Regenerate docs.xml and .defs files"
+
+  This reverts commit 3fcc2bdeb4a8df2172d6cc453b9d07c6cc9eda0d.
+  Changes in glib 2.61 should not have been added to glibmm 2.60
+
+2019-07-21  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio: Fix ownership of some lists and arrays
+
+  * gio/src/drive.hg: get_volumes(): Glib::OWNERSHIP_SHALLOW -> DEEP
+  * gio/src/mountoperation.hg: signal_ask_question(): DEEP -> NONE
+  A signal handler shall not deallocate its input data.
+  * gio/src/themedicon.hg: get_names(): DEEP -> NONE
+  * gio/src/tlsdatabase.[ccg|hg]: lookup_certificates_issued_by[_finish]_vfunc():
+  g_list_copy() -> g_list_copy_deep()
+  * gio/src/volumemonitor.hg: get_connected_drives(), get_volumes(),
+  get_mounts(): SHALLOW -> DEEP
+
+2019-07-21  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib, Gio: Regenerate docs.xml and .defs files
+
+2019-07-17  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::DBus::Object::get_interface_vfunc(): Don't add global symbol
+
+  The previous fix of Gio::DBus::Object vfuncs added a Glib::unwrap_copy()
+  overload, which became a global symbol in the load module. Replace it
+  with a local name in an anonymous namespace.
+
+2019-07-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::DBus::Object: Fix refcounts in some vfuncs
+
+  Gio::DBus::Object::get_interface_vfunc() and get_interfaces_vfunc()
+  must add a reference to the returned DBus interfaces. The caller shall
+  unref them. g_dbus_object_get_interface() and g_dbus_object_get_interfaces()
+  are marked (transfer full).
+
+2019-07-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::ustring docs: ustring can't always replace std::string
+
+  Fixes #47
+
+2019-07-09  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::init(), Gio::init(): Improve the documentation
+
+  See issue #49
+
+2019-07-08  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Variant<std::tuple<>>::create(): Fix memory leak
+
+  Fixes #48
+
+2019-07-08  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  gmmproc: Update enum.pl and h2def.py for new glib deprecation macros
+
+  * tools/enum.pl:  Don't replace MY_ENUMERATOR = '}' with MY_ENUMERATOR = ']'.
+  Remove *_DEPRECATED_TYPE_IN_* and *_DEPRECATED_ENUMERATOR_IN_* when enum
+  definitions are parsed.
+  * tools/defs_gen/h2def.py: When parsing function declarations:
+  Remove G_GNUC_BEGIN_IGNORE_DEPRECATIONS, G_GNUC_END_IGNORE_DEPRECATIONS
+  and G_DECLARE_INTERFACE(*). Update the removals of *_DEPRECATED*
+  and *_AVAILABLE_IN* so the new *_DEPRECATED_TYPE* and friends won't
+  affect the result.
+
+2019-06-30  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Properties example: Print the property values
+
+2019-06-30  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Object, Thread: Use G_GNUC_{BEGIN,END}_IGNORE_DEPRECATIONS
+
+  * glib/glibmm/object.[h|cc]: GParameter is really deprecated (not just
+  mentioned in a comment). Use G_GNUC_{BEGIN,END}_IGNORE_DEPRECATIONS
+  to avoid warnings.
+  * glib/src/thread.hg: GLib ignores G_DISABLE_DEPRECATED.
+  Use G_GNUC_{BEGIN,END}_IGNORE_DEPRECATIONS to avoid warnings.
+
+2019-06-12  Daniel Boles  <dboles@src.gnome.org>
+
+  Property: Clarify “manipulate” → read and/or write
+
+2019-04-26  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Checksum, DateTime, TimeZone: Add TODO comments
+
+  These classes shall have Glib::Value specializations, when we can add API.
+  In the master branch, where API and ABI can be changed, they have been
+  wrapped as _CLASS_BOXEDTYPE.
+
+2019-04-18  Dainis Jonitis  <jonitis@gmail.com>
+
+  Fix callback races in glibmm when source is destructed
+
+  It is normal situation when glib main loop iterates sources on one
+  thread where it checks whether source is still active and its callback
+  functions can be called and glibmm Source being destroyed on other
+  thread. Glibmm should check once again that callback_data and
+  callback_funcs fields are still valid and GSource was not marked
+  as inactive while its callback handlers are called.
+  
+  Fixes #41
+
+2019-04-18  Martin Ejdestig  <marejde@gmail.com>
+
+  Use convert_return_gchar_ptr_to_*() in a couple of ustring methods
+
+  First attempt at fixing memory leak in make_valid() (see previous commit)
+  used make_unique_ptr_gfree() directly because of looking at these methods.
+  Better to use the helper function.
+  
+  This actually fixes undefined behavior for normalize() since
+  g_utf8_normalize() is documented to return NULL if string is not a valid
+  UTF-8 string. The constructor for std::string, which ustring uses for
+  storage, that takes a pointer is documented to have undefined behavior if
+  pointer is NULL. The utility function checks for NULL and uses the default
+  constructor in that case. (Have not looked at implementation of Glib
+  functions, and it may be that all std::string implementations Glibmm is
+  used with handles this case, but good to avoid undefined behavior
+  regardless, I think.)
+
+2019-03-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.60.0
+
+2019-03-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  giomm.h: Add missing #include directives
+
+2019-03-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::NetworkManager: Add class documentation
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio: Add some API (AppInfo::launch_uris_async() etc.)
+
+  * gio/src/appinfo.hg: Add launch_uris_async() and launch_uris_async().
+  * gio/src/asyncresult.hg: _IGNORE g_async_result_legacy_propagate_error().
+  * gio/src/dbusconnection.hg: Add get/property_flags().
+  * tools/m4/convert_gio.m4: Add conversions for GDBusConnectionFlags.
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib: Add some API (DateTime::get_timezone() etc.)
+
+  * glib/src/datetime.[ccg|hg]: Add get_timezone().
+  * glib/src/keyfile.hg: Add get_locale_for_key().
+  * glib/src/timezone.hg: Add get_identifier().
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::Settings: Add property_settings_schema()
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio: Use _IS_REFCOUNTED_BOXEDTYPE where appropriate
+
+  * gio/src/dbusintrospection.hg: Add _IS_REFCOUNTED_BOXEDTYPE to
+  Gio::DBus::InterfaceInfo which is used in _WRAP_PROPERTY in Gio::DBus::Proxy.
+  * gio/src/settingsschema.hg: Add _IS_REFCOUNTED_BOXEDTYPE. SettingsSchema is
+  used in _WRAP_PROPERTY in Gio::Settings.
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  gmmproc: Add _IS_REFCOUNTED_BOXEDTYPE
+
+  * glib/glibmm/value.h: Add Value_RefPtrBoxed<>.
+  * tools/m4/class_opaque_refcounted.m4: Add _IS_REFCOUNTED_BOXEDTYPE, which can
+  be used together with _CLASS_OPAQUE_REFCOUNTED. It generates a *_get_type()
+  function and a Glib::Value specialization. A Glib::Value specialization is
+  required, if the C++ class is used in _WRAP_PROPERTY.
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::TlsClientConnection: Deprecate property_accepted_cas()
+
+  It does not work because there is no suitable Glib::Value<T> specialization.
+  get_accepted_cas() can be used instead.
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Value: Add Value<std::vector<string>> specializations
+
+  Add Value<std::vector<std::string>> and Value<std::vector<Glib::ustring>>.
+  One of them is needed in _WRAP_PROPERTY("names", std::vector<Glib::ustring>)
+  in Gio::ThemedIcon and in _WRAP_PROPERTYs in gtkmm.
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::ThemedIcon: Add create(const std::vector<Glib::ustring>& iconnames)
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::AsyncResult: Explain why wrap() is not used in get_source_object_base()
+
+  * gio/src/asyncresult.ccg: Replace a TODO comment with an explanation.
+  * tests/giomm_asyncresult_sourceobject/main.cc: Add code that demonstrates
+  why Glib::wrap(GObject* object, bool take_copy) returns an empty RefPtr.
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib: Add some Glib::Value<> specializations
+
+  * glib/glibmm/error.[cc|h]: Add operator bool(). Add Glib::Value<Glib::Error>
+  so Glib::Error can be used in _WRAP_PROPERTY().
+  * glib/glibmm/value.[cc|h]: Add Glib::ValueBase_Variant, base class of
+  Glib::Value<VariantBase>.
+  * glib/src/variant.[ccg|hg]: Add Glib::Value<VariantBase> which is
+  needed in _WRAP_PROPERTY() in Gio:Action.
+  * glib/src/varianttype.[ccg|hg]: Add Glib::Value<VariantType> which is
+  needed in _WRAP_PROPERTY() in Gio:Action.
+  
+  All data types that occur in _WRAP_PROPERTY() must have correct Glib::Value<>
+  specializations. In most cases missing Value<> specializations are noticed
+  only during execution of code that calls an affected property_*() method.
+
+2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio: Remove NO_GTYPE from some _WRAP_ENUMs
+
+  NO_GTYPE can't be used in _WRAP_ENUM if the enum is used in _WRAP_PROPERTY.
+  The error is noticed only during execution of code that calls the generated
+  property_*() method. Fixes #37
+

@@ -1,0 +1,8 @@
+<map id="Gio::NetworkService" name="Gio::NetworkService">
+<area shape="rect" id="node1" title="A GSocketConnectable for resolving SRV records." alt="" coords="57,304,212,331"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="5,229,104,256"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="69,80,200,107"/>
+<area shape="rect" id="node6" href="$classGlib_1_1Interface.html" title=" " alt="" coords="141,155,256,181"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="77,5,193,32"/>
+<area shape="rect" id="node5" href="$classGio_1_1SocketConnectable.html" title="Interface for potential socket endpoints." alt="" coords="128,229,304,256"/>
+</map>

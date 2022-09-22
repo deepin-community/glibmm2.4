@@ -1,0 +1,8 @@
+<map id="Gio::ThreadedSocketService" name="Gio::ThreadedSocketService">
+<area shape="rect" id="node1" title="A threaded GSocketService." alt="" coords="5,379,209,405"/>
+<area shape="rect" id="node2" href="$classGio_1_1SocketService.html" title="Make it easy to implement a network service." alt="" coords="36,304,179,331"/>
+<area shape="rect" id="node3" href="$classGio_1_1SocketListener.html" title="Helper for accepting network client connections." alt="" coords="34,229,181,256"/>
+<area shape="rect" id="node4" href="$classGlib_1_1Object.html" title=" " alt="" coords="58,155,157,181"/>
+<area shape="rect" id="node5" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="42,80,173,107"/>
+<area shape="rect" id="node6" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="49,5,165,32"/>
+</map>

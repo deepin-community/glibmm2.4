@@ -1,0 +1,11 @@
+<map id="Gio::SocketAddress" name="Gio::SocketAddress">
+<area shape="rect" id="node1" title="Abstract base class representing endpoints for socket communication." alt="" coords="117,304,263,331"/>
+<area shape="rect" id="node7" href="$classGio_1_1InetSocketAddress.html" title="Internet SocketAddress." alt="" coords="5,379,177,405"/>
+<area shape="rect" id="node9" href="$classGio_1_1UnixSocketAddress.html" title="UnixSocketAddress &#45; UNIX SocketAddress." alt="" coords="201,379,379,405"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="61,229,159,256"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="125,80,255,107"/>
+<area shape="rect" id="node6" href="$classGlib_1_1Interface.html" title=" " alt="" coords="197,155,311,181"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="132,5,248,32"/>
+<area shape="rect" id="node5" href="$classGio_1_1SocketConnectable.html" title="Interface for potential socket endpoints." alt="" coords="183,229,359,256"/>
+<area shape="rect" id="node8" href="$classGio_1_1ProxyAddress.html" title="ProxyAddress &#45; An internet address with proxy information." alt="" coords="21,453,162,480"/>
+</map>

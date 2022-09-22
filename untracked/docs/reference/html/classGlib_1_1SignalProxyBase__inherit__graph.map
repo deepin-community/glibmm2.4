@@ -1,0 +1,8 @@
+<map id="Glib::SignalProxyBase" name="Glib::SignalProxyBase">
+<area shape="rect" id="node1" title=" " alt="" coords="226,5,391,32"/>
+<area shape="rect" id="node2" href="$classGlib_1_1SignalProxyDetailed.html" title="The SignalProxy provides an API similar to sigc::signal that can be used to connect sigc::slots to gl..." alt="" coords="5,80,193,107"/>
+<area shape="rect" id="node4" href="$classGlib_1_1SignalProxyNormal.html" title="The SignalProxy provides an API similar to sigc::signal that can be used to connect sigc::slots to gl..." alt="" coords="218,80,399,107"/>
+<area shape="rect" id="node6" href="$classGlib_1_1SignalProxyProperty.html" title="Use the connect() method, with sigc::ptr_fun() or sigc::mem_fun() to connect signals to signal handle..." alt="" coords="424,80,612,107"/>
+<area shape="rect" id="node3" href="$classGlib_1_1SignalProxyDetailedAnyType.html" title="Proxy for signals with any number of arguments and possibly a detailed name." alt="" coords="5,155,193,196"/>
+<area shape="rect" id="node5" href="$classGlib_1_1SignalProxy.html" title="Proxy for signals with any number of arguments." alt="" coords="237,155,381,196"/>
+</map>

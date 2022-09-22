@@ -1,0 +1,7 @@
+<map id="Gio::SimpleIOStream" name="Gio::SimpleIOStream">
+<area shape="rect" id="node1" title="A wrapper around an input and an output stream." alt="" coords="5,304,164,331"/>
+<area shape="rect" id="node2" href="$classGio_1_1IOStream.html" title="IOStream &#45; Base class for implementing read/write streams." alt="" coords="28,229,141,256"/>
+<area shape="rect" id="node3" href="$classGlib_1_1Object.html" title=" " alt="" coords="35,155,134,181"/>
+<area shape="rect" id="node4" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="19,80,150,107"/>
+<area shape="rect" id="node5" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="27,5,143,32"/>
+</map>

@@ -1,0 +1,51 @@
+<map id="Glib::Interface" name="Glib::Interface">
+<area shape="rect" id="node1" title=" " alt="" coords="348,741,463,768"/>
+<area shape="rect" id="node4" href="$classGio_1_1Action.html" title="Action &#45; An action." alt="" coords="561,31,655,57"/>
+<area shape="rect" id="node6" href="$classGio_1_1ActionGroup.html" title="ActionGroup &#45; a group of actions." alt="" coords="542,157,674,184"/>
+<area shape="rect" id="node10" href="$classGio_1_1ActionMap.html" title="ActionMap &#45; Interface for action containers." alt="" coords="547,107,669,133"/>
+<area shape="rect" id="node11" href="$classGio_1_1AppInfo.html" title="Application information, to describe applications installed on the system, and launch them." alt="" coords="557,259,659,285"/>
+<area shape="rect" id="node13" href="$classGio_1_1AsyncInitable.html" title="AsyncInitable &#45; Asynchronously failable object initialization interface." alt="" coords="538,367,678,393"/>
+<area shape="rect" id="node17" href="$classGio_1_1AsyncResult.html" title="Provides a base class for implementing asynchronous function results." alt="" coords="542,488,674,515"/>
+<area shape="rect" id="node18" href="$classGio_1_1Converter.html" title="Converter &#45; Data conversion interface." alt="" coords="550,539,666,565"/>
+<area shape="rect" id="node22" href="$classGio_1_1DBus_1_1Interface.html" title="Interface &#45; Base type for D&#45;Bus interfaces." alt="" coords="532,589,684,616"/>
+<area shape="rect" id="node24" href="$classGio_1_1DBus_1_1Object.html" title="Object &#45; Base type for D&#45;Bus objects." alt="" coords="540,640,676,667"/>
+<area shape="rect" id="node27" href="$classGio_1_1DBus_1_1ObjectManager.html" title="Base type for D&#45;Bus object managers." alt="" coords="511,433,705,460"/>
+<area shape="rect" id="node29" href="$classGio_1_1Drive.html" title="Virtual File System drive management." alt="" coords="565,691,651,717"/>
+<area shape="rect" id="node30" href="$classGio_1_1File.html" title="File and directory handling." alt="" coords="571,741,645,768"/>
+<area shape="rect" id="node31" href="$classGio_1_1Icon.html" title="This is a very minimal interface for icons." alt="" coords="569,792,647,819"/>
+<area shape="rect" id="node36" href="$classGio_1_1Initable.html" title="Failable object initialization interface." alt="" coords="557,313,659,340"/>
+<area shape="rect" id="node37" href="$classGio_1_1ListModel.html" title="A dynamic list of objects." alt="" coords="551,843,665,869"/>
+<area shape="rect" id="node38" href="$classGio_1_1Mount.html" title="The Mount interface represents user&#45;visible mounts." alt="" coords="561,893,655,920"/>
+<area shape="rect" id="node39" href="$classGio_1_1NetworkMonitor.html" title="Network status monitor." alt="" coords="529,944,687,971"/>
+<area shape="rect" id="node40" href="$classGio_1_1PollableInputStream.html" title="PollableInputStream &#45; Interface for pollable input streams." alt="" coords="516,995,700,1021"/>
+<area shape="rect" id="node41" href="$classGio_1_1PollableOutputStream.html" title="PollableOutputStream &#45; Interface for pollable output streams." alt="" coords="511,1045,705,1072"/>
+<area shape="rect" id="node42" href="$classGio_1_1Proxy.html" title="Proxy &#45; Interface for proxy handling." alt="" coords="563,1096,653,1123"/>
+<area shape="rect" id="node43" href="$classGio_1_1ProxyResolver.html" title="ProxyResolver &#45; Asynchronous and cancellable network proxy resolver." alt="" coords="535,1147,681,1173"/>
+<area shape="rect" id="node44" href="$classGio_1_1RemoteActionGroup.html" title="RemoteActionGroup &#45; a ActionGroup that interacts with other processes." alt="" coords="517,208,699,235"/>
+<area shape="rect" id="node45" href="$classGio_1_1Seekable.html" title="Stream seeking interface." alt="" coords="553,1197,663,1224"/>
+<area shape="rect" id="node46" href="$classGio_1_1SocketConnectable.html" title="Interface for potential socket endpoints." alt="" coords="520,1248,696,1275"/>
+<area shape="rect" id="node47" href="$classGio_1_1TlsClientConnection.html" title="TlsClientConnection &#45; TLS client&#45;side connection." alt="" coords="517,1299,699,1325"/>
+<area shape="rect" id="node48" href="$classGio_1_1TlsServerConnection.html" title="TlsServerConnection &#45; TLS server&#45;side connection." alt="" coords="515,1349,701,1376"/>
+<area shape="rect" id="node49" href="$classGio_1_1Volume.html" title="The Volume interface represents user&#45;visible objects that can be mounted." alt="" coords="557,1400,659,1427"/>
+<area shape="rect" id="node2" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="169,741,300,768"/>
+<area shape="rect" id="node3" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="5,741,121,768"/>
+<area shape="rect" id="node5" href="$classGio_1_1SimpleAction.html" title="SimpleAction &#45; A simple Action implementation." alt="" coords="788,5,927,32"/>
+<area shape="rect" id="node7" href="$classGio_1_1Application.html" title="Application &#45; Core application class." alt="" coords="795,107,920,133"/>
+<area shape="rect" id="node8" href="$classGio_1_1DBus_1_1ActionGroup.html" title="ActionGroup &#45; A D&#45;Bus Gio::ActionGroup implementation." alt="" coords="770,157,945,184"/>
+<area shape="rect" id="node9" href="$classGio_1_1SimpleActionGroup.html" title="SimpleActionGroup &#45; A simple ActionGroup implementation." alt="" coords="769,56,946,83"/>
+<area shape="rect" id="node12" href="$classGio_1_1DesktopAppInfo.html" title="DesktopAppInfo is an implementation of AppInfo based on desktop files." alt="" coords="779,208,935,235"/>
+<area shape="rect" id="node14" href="$classGio_1_1DBus_1_1Connection.html" title="A D&#45;Bus Connection." alt="" coords="774,309,941,336"/>
+<area shape="rect" id="node15" href="$classGio_1_1DBus_1_1ObjectManagerClient.html" title="Client&#45;side object manager." alt="" coords="761,361,954,402"/>
+<area shape="rect" id="node16" href="$classGio_1_1DBus_1_1Proxy.html" title="A client&#45;side proxy." alt="" coords="792,259,923,285"/>
+<area shape="rect" id="node19" href="$classGio_1_1CharsetConverter.html" title="CharsetConverter &#45; Convert between charsets." alt="" coords="774,492,941,519"/>
+<area shape="rect" id="node20" href="$classGio_1_1ZlibCompressor.html" title="ZlibCompressor &#45; Zlib compressor." alt="" coords="780,543,935,569"/>
+<area shape="rect" id="node21" href="$classGio_1_1ZlibDecompressor.html" title="ZlibDecompressor &#45; Zlib decompressor." alt="" coords="772,593,943,620"/>
+<area shape="rect" id="node23" href="$classGio_1_1DBus_1_1InterfaceSkeleton.html" title="Abstract base class for D&#45;Bus interfaces on the service side." alt="" coords="753,644,961,671"/>
+<area shape="rect" id="node25" href="$classGio_1_1DBus_1_1ObjectProxy.html" title="Client&#45;side D&#45;Bus object." alt="" coords="771,745,944,772"/>
+<area shape="rect" id="node26" href="$classGio_1_1DBus_1_1ObjectSkeleton.html" title="Service&#45;side D&#45;Bus object." alt="" coords="761,695,953,721"/>
+<area shape="rect" id="node28" href="$classGio_1_1DBus_1_1ObjectManagerServer.html" title="Service&#45;side object manager." alt="" coords="761,426,954,467"/>
+<area shape="rect" id="node32" href="$classGio_1_1Emblem.html" title="An object for emblems." alt="" coords="804,847,911,873"/>
+<area shape="rect" id="node33" href="$classGio_1_1EmblemedIcon.html" title="Icons with Emblems." alt="" coords="783,897,932,924"/>
+<area shape="rect" id="node34" href="$classGio_1_1LoadableIcon.html" title="Extends the Icon interface and adds the ability to load icons from streams." alt="" coords="788,948,927,975"/>
+<area shape="rect" id="node35" href="$classGio_1_1ThemedIcon.html" title="Icon theming support." alt="" coords="791,796,923,823"/>
+</map>

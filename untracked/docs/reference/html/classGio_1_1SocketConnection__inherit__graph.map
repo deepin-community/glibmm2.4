@@ -1,0 +1,10 @@
+<map id="Gio::SocketConnection" name="Gio::SocketConnection">
+<area shape="rect" id="node1" title="A socket connection." alt="" coords="109,304,277,331"/>
+<area shape="rect" id="node6" href="$classGio_1_1TcpConnection.html" title="A TCP SocketConnection." alt="" coords="33,379,179,405"/>
+<area shape="rect" id="node8" href="$classGio_1_1UnixConnection.html" title="A Unix domain SocketConnection." alt="" coords="203,379,358,405"/>
+<area shape="rect" id="node2" href="$classGio_1_1IOStream.html" title="IOStream &#45; Base class for implementing read/write streams." alt="" coords="136,229,249,256"/>
+<area shape="rect" id="node3" href="$classGlib_1_1Object.html" title=" " alt="" coords="143,155,242,181"/>
+<area shape="rect" id="node4" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="127,80,258,107"/>
+<area shape="rect" id="node5" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="135,5,251,32"/>
+<area shape="rect" id="node7" href="$classGio_1_1TcpWrapperConnection.html" title="Wrapper for non&#45;Gio::SocketConnection&#45;based, Gio::Socket&#45;based Gio::IOStreams." alt="" coords="5,453,207,480"/>
+</map>

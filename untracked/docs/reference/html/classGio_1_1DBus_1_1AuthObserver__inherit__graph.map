@@ -1,0 +1,6 @@
+<map id="Gio::DBus::AuthObserver" name="Gio::DBus::AuthObserver">
+<area shape="rect" id="node1" title="AuthObserver &#45; An object used for authenticating connections." alt="" coords="5,229,188,256"/>
+<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="47,155,146,181"/>
+<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="31,80,162,107"/>
+<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="39,5,155,32"/>
+</map>

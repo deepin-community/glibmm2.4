@@ -1,0 +1,9 @@
+<map id="Gio::FileOutputStream" name="Gio::FileOutputStream">
+<area shape="rect" id="node1" title="FileOutputStream provides output streams that write their content to a file." alt="" coords="68,304,235,331"/>
+<area shape="rect" id="node2" href="$classGio_1_1OutputStream.html" title="Base class for implementing streaming output." alt="" coords="5,229,148,256"/>
+<area shape="rect" id="node3" href="$classGlib_1_1Object.html" title=" " alt="" coords="37,155,135,181"/>
+<area shape="rect" id="node4" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="86,80,217,107"/>
+<area shape="rect" id="node7" href="$classGlib_1_1Interface.html" title=" " alt="" coords="165,155,279,181"/>
+<area shape="rect" id="node5" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="93,5,209,32"/>
+<area shape="rect" id="node6" href="$classGio_1_1Seekable.html" title="Stream seeking interface." alt="" coords="172,229,283,256"/>
+</map>
