@@ -1,4 +1,4 @@
 version=4
-opts="searchmode=plain, uversionmangle=s/\.(alpha|beta|rc)/~$1/" \
+opts="searchmode=plain, uversionmangle=s/\.(alpha|beta|rc)/~$1/, downloadurlmangle=s|cache.json||" \
 https://download.gnome.org/sources/glibmm/cache.json \
-	[\d.]+[02468]/glibmm-([\d.]+)@ARCHIVE_EXT@
+	2.66/glibmm-([\d.]+)@ARCHIVE_EXT@

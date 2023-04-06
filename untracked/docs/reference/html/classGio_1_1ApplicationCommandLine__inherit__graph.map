@@ -1,6 +1,0 @@
-<map id="Gio::ApplicationCommandLine" name="Gio::ApplicationCommandLine">
-<area shape="rect" id="node1" title="ApplicationCommandLine &#45; A command&#45;line invocation of an application." alt="" coords="5,229,224,256"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="65,155,164,181"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="49,80,180,107"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="57,5,173,32"/>
-</map>

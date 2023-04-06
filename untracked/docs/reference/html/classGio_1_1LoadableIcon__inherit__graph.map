@@ -1,8 +1,0 @@
-<map id="Gio::LoadableIcon" name="Gio::LoadableIcon">
-<area shape="rect" id="node1" title="Extends the Icon interface and adds the ability to load icons from streams." alt="" coords="5,304,144,331"/>
-<area shape="rect" id="node6" href="$classGio_1_1FileIcon.html" title="FileIcon specifies an icon by pointing to an image file to be used as icon." alt="" coords="23,379,126,405"/>
-<area shape="rect" id="node2" href="$classGio_1_1Icon.html" title="This is a very minimal interface for icons." alt="" coords="35,229,114,256"/>
-<area shape="rect" id="node3" href="$classGlib_1_1Interface.html" title=" " alt="" coords="17,155,132,181"/>
-<area shape="rect" id="node4" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="9,80,140,107"/>
-<area shape="rect" id="node5" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="17,5,133,32"/>
-</map>

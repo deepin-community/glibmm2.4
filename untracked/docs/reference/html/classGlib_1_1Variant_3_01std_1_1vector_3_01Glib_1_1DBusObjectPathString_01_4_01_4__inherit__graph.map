@@ -1,5 +1,0 @@
-<map id="Glib::Variant&lt; std::vector&lt; Glib::DBusObjectPathString &gt; &gt;" name="Glib::Variant&lt; std::vector&lt; Glib::DBusObjectPathString &gt; &gt;">
-<area shape="rect" id="node1" title="Specialization of Variant containing an array of D&#45;Bus object paths." alt="" coords="6,155,202,211"/>
-<area shape="rect" id="node2" href="$classGlib_1_1VariantContainerBase.html" title="The base class for multiple&#45;item Variants, such as Variants containing tuples or arrays,..." alt="" coords="5,80,203,107"/>
-<area shape="rect" id="node3" href="$classGlib_1_1VariantBase.html" title="This is the base class for all Variant types." alt="" coords="37,5,171,32"/>
-</map>

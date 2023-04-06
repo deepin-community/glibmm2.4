@@ -1,9 +1,0 @@
-<map id="Glib::ValueBase_Boxed" name="Glib::ValueBase_Boxed">
-<area shape="rect" id="node1" title=" " alt="" coords="177,129,348,156"/>
-<area shape="rect" id="node3" href="$classGlib_1_1Value.html" title="Generic value implementation for custom types." alt="" coords="439,5,570,32"/>
-<area shape="rect" id="node4" href="$classGlib_1_1Value_3_01std_1_1vector_3_01Glib_1_1ustring_01_4_01_4.html" title="Specialization for vectors of UTF&#45;8 strings." alt="" coords="417,57,593,98"/>
-<area shape="rect" id="node5" href="$classGlib_1_1Value_3_01std_1_1vector_3_01std_1_1string_01_4_01_4.html" title="Specialization for vectors of strings." alt="" coords="417,122,593,163"/>
-<area shape="rect" id="node6" href="$classGlib_1_1Value__Boxed.html" title=" " alt="" coords="416,188,593,215"/>
-<area shape="rect" id="node7" href="$classGlib_1_1Value__RefPtrBoxed.html" title=" " alt="" coords="396,239,613,265"/>
-<area shape="rect" id="node2" href="$classGlib_1_1ValueBase.html" title=" " alt="" coords="5,129,129,156"/>
-</map>

@@ -1,8 +1,0 @@
-<map id="Gio::ZlibCompressor" name="Gio::ZlibCompressor">
-<area shape="rect" id="node1" title="ZlibCompressor &#45; Zlib compressor." alt="" coords="43,304,197,331"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="5,229,104,256"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="55,80,185,107"/>
-<area shape="rect" id="node6" href="$classGlib_1_1Interface.html" title=" " alt="" coords="120,155,235,181"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="62,5,178,32"/>
-<area shape="rect" id="node5" href="$classGio_1_1Converter.html" title="Converter &#45; Data conversion interface." alt="" coords="129,229,245,256"/>
-</map>

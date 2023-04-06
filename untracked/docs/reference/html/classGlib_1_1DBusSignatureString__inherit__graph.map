@@ -1,4 +1,0 @@
-<map id="Glib::DBusSignatureString" name="Glib::DBusSignatureString">
-<area shape="rect" id="node1" title="String class for D&#45;Bus signatures in Glib::Variant." alt="" coords="5,80,196,107"/>
-<area shape="rect" id="node2" href="$classGlib_1_1ustring.html" title="Glib::ustring has much the same interface as std::string, but contains Unicode characters encoded as ..." alt="" coords="50,5,151,32"/>
-</map>

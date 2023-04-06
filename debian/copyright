@@ -3,6 +3,8 @@ Upstream-Name: glibmm
 Upstream-Contact: Murray Cumming <murrayc@murrayc.com>
                   Daniel Elstner <daniel.kitta@googlemail.com>
 Source: https://download.gnome.org/sources/glibmm/
+Files-Excluded: untracked
+Comment: Let's build the html help from source
 
 Files: *
 Copyright: 1998-2002, 2006-2008, The gtkmm Development Team

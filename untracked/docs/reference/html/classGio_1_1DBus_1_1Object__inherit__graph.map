@@ -1,8 +1,0 @@
-<map id="Gio::DBus::Object" name="Gio::DBus::Object">
-<area shape="rect" id="node1" title="Object &#45; Base type for D&#45;Bus objects." alt="" coords="127,229,263,256"/>
-<area shape="rect" id="node5" href="$classGio_1_1DBus_1_1ObjectProxy.html" title="Client&#45;side D&#45;Bus object." alt="" coords="5,304,179,331"/>
-<area shape="rect" id="node6" href="$classGio_1_1DBus_1_1ObjectSkeleton.html" title="Service&#45;side D&#45;Bus object." alt="" coords="203,304,395,331"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Interface.html" title=" " alt="" coords="137,155,252,181"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="129,80,260,107"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="137,5,253,32"/>
-</map>

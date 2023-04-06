@@ -1,9 +1,0 @@
-<map id="Gio::TlsClientConnection" name="Gio::TlsClientConnection">
-<area shape="rect" id="node1" title="TlsClientConnection &#45; TLS client&#45;side connection." alt="" coords="41,379,223,405"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Interface.html" title=" " alt="" coords="5,229,120,256"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="65,80,196,107"/>
-<area shape="rect" id="node7" href="$classGlib_1_1Object.html" title=" " alt="" coords="139,155,237,181"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="73,5,189,32"/>
-<area shape="rect" id="node5" href="$classGio_1_1TlsConnection.html" title="TlsConnection &#45; TLS connection type." alt="" coords="121,304,265,331"/>
-<area shape="rect" id="node6" href="$classGio_1_1IOStream.html" title="IOStream &#45; Base class for implementing read/write streams." alt="" coords="145,229,258,256"/>
-</map>

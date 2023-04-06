@@ -1,6 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classGlib_1_1PropertyBase.html" title="This is the base class for Glib::Object properties." alt="" coords="5,56,148,83"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Property.html" title="A Glib::Object property." alt="" coords="232,5,381,32"/>
-<area shape="rect" id="node3" href="$classGlib_1_1Property__ReadOnly.html" title="See Property." alt="" coords="197,56,416,83"/>
-<area shape="rect" id="node4" href="$classGlib_1_1Property__WriteOnly.html" title="See Property." alt="" coords="196,107,417,133"/>
-</map>

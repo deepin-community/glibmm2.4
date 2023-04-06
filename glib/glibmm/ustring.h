@@ -25,6 +25,7 @@
 #include <iterator>
 #include <sstream>
 #include <string>
+#include <type_traits> // std::enable_if, std::is_same
 #ifndef GLIBMM_HAVE_STD_ITERATOR_TRAITS
 #include <cstddef> /* for std::ptrdiff_t */
 #endif
@@ -196,6 +197,13 @@ public:
   using difference_type = std::string::difference_type;
   using reference = value_type;
   using pointer = void;
+
+  // Warning from clang++ 14.0.0:
+  // definition of implicit copy constructor for ..... is deprecated
+  // because it has a user-declared copy assignment operator [-Wdeprecated-copy]
+  //
+  // It's difficult or impossible to avoid the warning without either removing or adding ABI.
+  // https://gitlab.gnome.org/GNOME/glibmm/-/issues/98
 
   inline ustring_Iterator();
   inline ustring_Iterator(const ustring_Iterator<std::string::iterator>& other);
