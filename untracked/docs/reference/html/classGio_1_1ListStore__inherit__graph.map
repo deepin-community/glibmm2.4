@@ -1,9 +1,0 @@
-<map id="Gio::ListStore&lt; T_item &gt;" name="Gio::ListStore&lt; T_item &gt;">
-<area shape="rect" id="node1" title="A simple implementation of Gio::ListModel that stores all items in memory." alt="" coords="28,379,212,405"/>
-<area shape="rect" id="node2" href="$classGio_1_1ListStoreBase.html" title="A simple implementation of Gio::ListModel that stores all items in memory." alt="" coords="49,304,191,331"/>
-<area shape="rect" id="node3" href="$classGlib_1_1Object.html" title=" " alt="" coords="5,229,104,256"/>
-<area shape="rect" id="node4" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="53,80,184,107"/>
-<area shape="rect" id="node7" href="$classGlib_1_1Interface.html" title=" " alt="" coords="119,155,233,181"/>
-<area shape="rect" id="node5" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="61,5,177,32"/>
-<area shape="rect" id="node6" href="$classGio_1_1ListModel.html" title="A dynamic list of objects." alt="" coords="128,229,243,256"/>
-</map>

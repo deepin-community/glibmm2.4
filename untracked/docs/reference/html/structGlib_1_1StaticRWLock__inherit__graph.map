@@ -1,4 +1,0 @@
-<map id="Glib::StaticRWLock" name="Glib::StaticRWLock">
-<area shape="rect" id="node1" title="Like Glib::RWLock, but can be defined at compile time." alt="" coords="5,5,151,32"/>
-<area shape="rect" id="node2" href="$classGlib_1_1RWLock.html" title=" " alt="" coords="24,80,132,107"/>
-</map>

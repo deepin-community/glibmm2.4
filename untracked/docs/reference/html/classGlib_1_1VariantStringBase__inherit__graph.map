@@ -1,8 +1,0 @@
-<map id="Glib::VariantStringBase" name="Glib::VariantStringBase">
-<area shape="rect" id="node1" title="Base class from which string variant classes derive." alt="" coords="188,111,360,138"/>
-<area shape="rect" id="node3" href="$classGlib_1_1Variant_3_01Glib_1_1DBusObjectPathString_01_4.html" title="Specialization of Variant containing a Glib::DBusObjectPathString, for variants of type object path." alt="" coords="408,5,595,47"/>
-<area shape="rect" id="node4" href="$classGlib_1_1Variant_3_01Glib_1_1DBusSignatureString_01_4.html" title="Specialization of Variant containing a Glib::DBusSignatureString, for variants of type signature." alt="" coords="412,71,591,112"/>
-<area shape="rect" id="node5" href="$classGlib_1_1Variant_3_01Glib_1_1ustring_01_4.html" title="Specialization of Variant containing a Glib::ustring, for variants of type string,..." alt="" coords="430,136,573,177"/>
-<area shape="rect" id="node6" href="$classGlib_1_1Variant_3_01std_1_1string_01_4.html" title="Specialization of Variant containing a std::string, for variants of type bytestring,..." alt="" coords="433,201,570,243"/>
-<area shape="rect" id="node2" href="$classGlib_1_1VariantBase.html" title="This is the base class for all Variant types." alt="" coords="5,111,140,138"/>
-</map>

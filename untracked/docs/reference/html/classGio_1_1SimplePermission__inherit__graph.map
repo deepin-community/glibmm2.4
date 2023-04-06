@@ -1,7 +1,0 @@
-<map id="Gio::SimplePermission" name="Gio::SimplePermission">
-<area shape="rect" id="node1" title="A Permission that doesn&#39;t change value." alt="" coords="5,304,175,331"/>
-<area shape="rect" id="node2" href="$classGio_1_1Permission.html" title="An object representing the permission to perform a certain action." alt="" coords="28,229,152,256"/>
-<area shape="rect" id="node3" href="$classGlib_1_1Object.html" title=" " alt="" coords="41,155,139,181"/>
-<area shape="rect" id="node4" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="25,80,155,107"/>
-<area shape="rect" id="node5" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="32,5,148,32"/>
-</map>

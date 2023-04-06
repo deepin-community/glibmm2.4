@@ -1,6 +1,0 @@
-<map id="Gio::AppLaunchContext" name="Gio::AppLaunchContext">
-<area shape="rect" id="node1" title="This is used to handle, for instance, startup notification and launching of the new application on th..." alt="" coords="5,229,180,256"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="43,155,142,181"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="27,80,158,107"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="35,5,151,32"/>
-</map>

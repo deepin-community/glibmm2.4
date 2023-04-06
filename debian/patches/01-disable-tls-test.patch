@@ -5,10 +5,11 @@ Subject: Disable giomm_tls_client test
 This test requires network access which is not guaranteed on buildds.
 ---
  tests/Makefile.am | 4 ----
- 1 file changed, 4 deletions(-)
+ tests/meson.build | 2 +-
+ 2 files changed, 1 insertion(+), 5 deletions(-)
 
 diff --git a/tests/Makefile.am b/tests/Makefile.am
-index 2cb35ab..9a08a71 100644
+index b898575..dbf24b0 100644
 --- a/tests/Makefile.am
 +++ b/tests/Makefile.am
 @@ -23,7 +23,6 @@ check_PROGRAMS =				\
@@ -19,7 +20,7 @@ index 2cb35ab..9a08a71 100644
  	giomm_listmodel/test \
  	glibmm_btree/test			\
  	glibmm_base64/test			\
-@@ -81,9 +80,6 @@ giomm_simple_test_LDADD    = $(giomm_ldadd)
+@@ -84,9 +83,6 @@ giomm_simple_test_LDADD    = $(giomm_ldadd)
  giomm_asyncresult_sourceobject_test_SOURCES  = giomm_asyncresult_sourceobject/main.cc
  giomm_asyncresult_sourceobject_test_LDADD    = $(giomm_ldadd)
  
@@ -29,3 +30,16 @@ index 2cb35ab..9a08a71 100644
  giomm_listmodel_test_SOURCES                = giomm_listmodel/main.cc
  giomm_listmodel_test_LDADD                  = $(giomm_ldadd)
  
+diff --git a/tests/meson.build b/tests/meson.build
+index b53616b..4ebbd80 100644
+--- a/tests/meson.build
++++ b/tests/meson.build
+@@ -10,7 +10,7 @@ test_programs = [
+   [['giomm_listmodel'], 'test', ['main.cc'], true],
+   [['giomm_memoryinputstream'], 'test', ['main.cc'], true],
+   [['giomm_simple'], 'test', ['main.cc'], true],
+-  [['giomm_tls_client'], 'test', ['main.cc'], true],
++#  [['giomm_tls_client'], 'test', ['main.cc'], true], # requires network access
+   [['glibmm_base64'], 'test', ['main.cc'], false],
+   [['glibmm_binding'], 'test', ['main.cc'], false],
+   [['glibmm_bool_arrayhandle'], 'test', ['main.cc'], false],

@@ -1,13 +1,14 @@
 # This file is part of glibmm.
 
 project('glibmm', 'cpp',
-  version: '2.66.2',
+  version: '2.66.5',
   license: 'LGPLv2.1+',
   default_options: [
-    'cpp_std=c++11'
+    'cpp_std=c++11',
+    'warning_level=1',
   ],
-  meson_version: '>= 0.54.0', # required for meson.override_dependency()
-                              # and dep.get_variable(internal:)
+  meson_version: '>= 0.55.0', # required for meson.add_dist_script(python3, ...)
+                              # and meson.add_install_script(python3, ...)
 )
 
 glibmm_api_version = '2.4'
@@ -62,7 +63,7 @@ import os
 import sys
 sys.exit(os.path.isdir("@0@") or os.path.isfile("@0@"))
 '''.format(project_source_root / '.git')
-is_git_build = run_command(python3, '-c', cmd_py).returncode() != 0
+is_git_build = run_command(python3, '-c', cmd_py, check: false).returncode() != 0
 
 # Are we testing a dist tarball while it's being built?
 # There ought to be a better way. https://github.com/mesonbuild/meson/issues/6866
@@ -76,10 +77,12 @@ maintainer_mode = maintainer_mode_opt == 'true' or \
 if is_dist_check
   message('Looks like a tarball is being tested. ' + \
           'Option "dist-warnings" is used instead of "warnings".')
-  warning_level = get_option('dist-warnings')
+  cpp_warnings = get_option('dist-warnings')
 else
-  warning_level = get_option('warnings')
+  cpp_warnings = get_option('warnings')
 endif
+warning_level = get_option('warning_level').to_int()
+werror = get_option('werror')
 build_deprecated_api = get_option('build-deprecated-api')
 build_documentation_opt = get_option('build-documentation')
 build_documentation = build_documentation_opt == 'true' or \
@@ -140,7 +143,6 @@ if maintainer_mode and not mm_common_get.found()
   mm_common_get = find_program('mm-common-get', required: true)
 endif
 m4 = find_program('m4', required: maintainer_mode) # Used by gmmproc
-perl = find_program('perl', required: maintainer_mode or build_documentation)
 doxygen = find_program('doxygen', required: build_documentation)
 dot = find_program('dot', required: build_documentation) # Used by Doxygen
 xsltproc = find_program('xsltproc', required: build_documentation)
@@ -158,18 +160,35 @@ dist_build_scripts_py = script_dir / 'dist-build-scripts.py'
 if maintainer_mode
   # Copy files to untracked/build_scripts and untracked/docs.
   run_command(mm_common_get, '--force', script_dir,
-    project_source_root / 'untracked' / 'docs')
+    project_source_root / 'untracked' / 'docs',
+    check: true,
+  )
 else
   cmd_py = '''
 import os
 import sys
 sys.exit(os.path.isfile("@0@"))
 '''.format(generate_binding_py)
-  file_exists = run_command(python3, '-c', cmd_py).returncode() != 0
+  file_exists = run_command(python3, '-c', cmd_py, check: false).returncode() != 0
   if not file_exists
     error('Missing files in untracked/. You must enable maintainer-mode.')
   endif
 endif
+
+# Check if perl is required and available.
+doc_perl_prop = run_command(
+  python3, doc_reference_py, 'get_script_property',
+  '', # MMDOCTOOLDIR is not used
+  'requires_perl',
+  check: false,
+)
+doc_requires_perl = true
+if doc_perl_prop.returncode() == 0 and doc_perl_prop.stdout() == 'false'
+  doc_requires_perl = false
+endif
+
+perl = find_program('perl', required: maintainer_mode or \
+  (build_documentation and doc_requires_perl))
 
 # glibmm's own script files.
 glibmm_script_dir = project_source_root / 'tools' / 'build_scripts'
@@ -178,24 +197,25 @@ dummy_header_py = glibmm_script_dir / 'dummy-header.py'
 compile_schemas_py = glibmm_script_dir / 'compile-schemas.py'
 
 # Set compiler warnings.
+# Meson warns if any of the /W1, /W2, /W3, /W4, /Wall, -Wall, -Wextra, -Werror
+# compiler options are added with add_project_arguments().
+# Avoid such warnings, when possible.
+# See _warn_about_builtin_args() in meson/mesonbuild/interpreter/interpreter.py.
 warning_flags = []
-if warning_level == 'min'
-  if is_msvc
-    warning_flags = ['/W3']
-  else
-    warning_flags = ['-Wall']
+if cpp_warnings == 'min'
+  if warning_level == 0
+    warning_flags = is_msvc ? ['/W2'] : ['-Wall']
   endif
-elif warning_level == 'max' or warning_level == 'fatal'
-  if is_msvc
-    warning_flags = ['/W4']
-  else
-    warning_flags = '-pedantic -Wall -Wextra -Wformat-security -Wsuggest-override -Wshadow -Wno-long-long'.split()
+elif cpp_warnings == 'max' or cpp_warnings == 'fatal'
+  if warning_level < 3
+    warning_flags = is_msvc ? ['/W4'] : ['-pedantic', '-Wall', '-Wextra']
   endif
-  if warning_level == 'fatal'
-    if is_msvc
-      warning_flags += ['/WX']
-    else
-      warning_flags += ['-Werror']
+  if not is_msvc
+    warning_flags += '-Wformat-security -Wsuggest-override -Wshadow -Wno-long-long'.split()
+  endif
+  if cpp_warnings == 'fatal'
+    if not werror
+      warning_flags += is_msvc ? ['/WX'] : ['-Werror']
     endif
     deprecations = 'G SIGCXX'.split()
     foreach d : deprecations
@@ -213,13 +233,28 @@ msvc14x_toolset_ver = ''
 # MSVC: Ignore warnings that aren't really harmful, but make those
 #       that should not be overlooked stand out.
 if is_msvc
-  disabled_warnings = cpp_compiler.get_supported_arguments([
-    '/FImsvc_recommended_pragmas.h', '/wd4146', '/wd4267', '/utf-8'
-  ])
-  add_project_arguments(disabled_warnings, language: 'cpp')
+  disable_warnings_list = [
+    '/FImsvc_recommended_pragmas.h', # Turn off harmless warnings but make potentially
+                                     # dangerous ones glaring, distributed with GLib
+    '/utf-8', # Avoid C4819 unicode conversion warnings when building on CJK locales
+    '/wd4146', # unary minus operator applied to unsigned type, result still unsigned
+    '/wd4589', # Constructor of abstract class 'bb' ignores
+               # initializer for virtual base class 'aa'
+    '/wd4702', # unreachable code
+  ]
+  if host_machine.cpu_family() == 'x86_64' or host_machine.cpu_family() == 'aarch64'
+  # 'var' : conversion from 'size_t' to 'type', possible loss of data (applies on 64-bit builds)
+    disable_warnings_list += '/wd4267'
+  endif
+  add_project_arguments(
+    cpp_compiler.get_supported_arguments(disable_warnings_list),
+    language: 'cpp',
+  )
 
   if use_msvc14x_toolset_ver
-    if cpp_compiler.version().version_compare('>=19.20')
+    if cpp_compiler.version().version_compare('>=19.30')
+      msvc14x_toolset_ver = '-vc143'
+    elif cpp_compiler.version().version_compare('>=19.20')
       msvc14x_toolset_ver = '-vc142'
     elif cpp_compiler.version().version_compare('>=19.10')
       msvc14x_toolset_ver = '-vc141'
@@ -251,13 +286,13 @@ subdir('docs/reference')
 if can_add_dist_script
   # Add a ChangeLog file to the distribution directory.
   meson.add_dist_script(
-    python3.path(), dist_changelog_py,
+    python3, dist_changelog_py,
     project_source_root,
   )
   # Add build scripts to the distribution directory, and delete .gitignore
   # files and an empty $MESON_PROJECT_DIST_ROOT/build/ directory.
   meson.add_dist_script(
-    python3.path(), dist_build_scripts_py,
+    python3, dist_build_scripts_py,
     project_source_root,
     'untracked' / 'build_scripts',
   )
@@ -281,12 +316,14 @@ if meson.is_subproject()
     project_build_root,
     gmmproc_subproj_dir,
     'gmmproc',
+    check: true,
   )
   run_command(
     python3, handle_built_files_py, 'copy_built_files',
     project_build_root / 'tools',
     gmmproc_subproj_dir,
     'generate_wrap_init.pl',
+    check: true,
   )
 
   # Copy files needed by gmmproc from source dir to build dir.
@@ -296,12 +333,14 @@ if meson.is_subproject()
     project_source_root / 'tools' / 'm4',
     gmmproc_subproj_dir / 'm4',
     m4_basefiles,
+    check: true,
   )
   run_command(
     python3, handle_built_files_py, 'copy_built_files',
     project_source_root / 'tools' / 'pm',
     gmmproc_subproj_dir / 'pm',
     pm_basefiles,
+    check: true,
   )
 
   pkgconfig_vars = {
@@ -347,7 +386,8 @@ summary = [
   meson.project_name() + ' ' + meson.project_version(),
   '',
   '         Maintainer mode: @0@@1@'.format(maintainer_mode_opt, real_maintainer_mode),
-  '       Compiler warnings: @0@'.format(warning_level),
+  '       Compiler warnings: @0@ (warning_level: @1@, werror: @2@)'. \
+                             format(cpp_warnings, warning_level, werror),
   '    Build deprecated API: @0@'.format(build_deprecated_api),
   'Build HTML documentation: @0@@1@'.format(build_documentation_opt, real_build_documentation),
   '  Build example programs: @0@'.format(build_examples),

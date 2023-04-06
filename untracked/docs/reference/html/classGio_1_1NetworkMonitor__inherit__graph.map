@@ -1,6 +1,0 @@
-<map id="Gio::NetworkMonitor" name="Gio::NetworkMonitor">
-<area shape="rect" id="node1" title="Network status monitor." alt="" coords="5,229,163,256"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Interface.html" title=" " alt="" coords="27,155,141,181"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="19,80,149,107"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="26,5,142,32"/>
-</map>

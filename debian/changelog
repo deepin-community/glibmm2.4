@@ -1,3 +1,40 @@
+glibmm2.4 (2.66.5-2) unstable; urgency=medium
+
+  [ Debian Janitor ]
+  * Use secure URI in Homepage field.
+  * Add debian/upstream/metadata
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 14 Dec 2022 11:24:43 -0500
+
+glibmm2.4 (2.66.5-1) unstable; urgency=medium
+
+  * New upstream release
+  * Build docs from source
+  * debian/control.in: Build-Depend on libxml-parser-perl
+  * debian/*docs: Don't install README.md; it's just build instructions
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Mon, 19 Sep 2022 09:29:06 -0400
+
+glibmm2.4 (2.66.4-2) unstable; urgency=medium
+
+  * debian/control.in: Set Rules-Requires-Root: no
+  * debian/control.in: Bump Standards-Version to 4.6.1
+  * debian/watch: Only watch for 2.66 series releases
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Sat, 27 Aug 2022 14:41:02 -0400
+
+glibmm2.4 (2.66.4-1) unstable; urgency=medium
+
+  * New upstream release
+
+ -- Jeremy Bicha <jbicha@ubuntu.com>  Wed, 15 Jun 2022 12:01:56 -0400
+
+glibmm2.4 (2.66.2-2) unstable; urgency=medium
+
+  * Update 01-disable-tls-test.patch for meson (Closes: #996171)
+
+ -- Jeremy Bicha <jbicha@debian.org>  Mon, 24 Jan 2022 07:26:10 -0500
+
 glibmm2.4 (2.66.2-1) unstable; urgency=high
 
   * New upstream release

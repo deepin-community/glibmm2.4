@@ -1,3 +1,59 @@
+2.66.5 (stable):
+
+Gio:
+* ListStore: Don't derive a gtkmm__GListStore GType
+  (Kjell Ahlstedt) Issue glib#2661
+* DBus::Proxy: get_connection(), get_interface_info(): Add refreturn
+  (Kjell Ahlstedt) Issue #102 (우정모)
+
+Documentation:
+* Gio::Action: Improve the documentation
+  (Kjell Ahlstedt) Issue #100 (Diederik van Lierop)
+
+gmmproc:
+* Improved handling of final types
+  (Kjell Ahlstedt) Issue glib#2661
+
+Build:
+* Meson build: Avoid unnecessary configuration warnings
+  (Kjell Ahlstedt)
+* Meson/MSVC: Add more warnings to ignore
+  (Chun-wei Fan)
+* NMake Makefiles: Ensure g[lib|io]mm[config.h|.rc] are created
+  (Chun-wei Fan) Issue #99 (Martin Ammermüller)
+
+
+2.66.4 (stable):
+
+Glib:
+* ustring_Iterator: Don't declare copy constructor =default.
+  The fix in the 2.66.3 release broke ABI.
+  (Kjell Ahlstedt) Issue #98 (Scotty Trees)
+
+
+2.66.3 (stable):
+
+Glib, Gio:
+* Declare some copy constructors =default,
+  avoiding warnings from the clang++ compiler
+  (Kjell Ahlstedt)
+
+Gio:
+* TlsCertificate: Fix the create*() methods
+  (Kjell Ahlstedt)
+
+gmmproc:
+* Add "ignore_deprecations" argument in _WRAP_METHOD()
+  (Kjell Ahlstedt)
+
+Build with Meson:
+* MSVC build: Support Visual Studio 2022
+  (Chun-wei Fan)
+* Specify 'check' option in run_command()
+* Check if Perl is required for building documentation
+  (Kjell Ahlstedt)
+
+
 2.66.2 (stable):
 
 Glib, Gio:

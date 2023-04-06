@@ -1,7 +1,0 @@
-<map id="Gio::PollableOutputStream" name="Gio::PollableOutputStream">
-<area shape="rect" id="node1" title="PollableOutputStream &#45; Interface for pollable output streams." alt="" coords="11,229,206,256"/>
-<area shape="rect" id="node5" href="$classGio_1_1ConverterOutputStream.html" title="ConverterOutputstream &#45; Converter Output Stream." alt="" coords="5,304,212,331"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Interface.html" title=" " alt="" coords="51,155,166,181"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="43,80,174,107"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="51,5,167,32"/>
-</map>

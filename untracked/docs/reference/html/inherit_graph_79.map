@@ -1,8 +1,0 @@
-<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
-<area shape="rect" id="node1" href="$classGlib_1_1SignalProxyBase.html" title=" " alt="" coords="5,74,171,101"/>
-<area shape="rect" id="node2" href="$classGlib_1_1SignalProxyDetailed.html" title="The SignalProxy provides an API similar to sigc::signal that can be used to connect sigc::slots to gl..." alt="" coords="219,19,407,46"/>
-<area shape="rect" id="node4" href="$classGlib_1_1SignalProxyNormal.html" title="The SignalProxy provides an API similar to sigc::signal that can be used to connect sigc::slots to gl..." alt="" coords="222,74,403,101"/>
-<area shape="rect" id="node6" href="$classGlib_1_1SignalProxyProperty.html" title="Use the connect() method, with sigc::ptr_fun() or sigc::mem_fun() to connect signals to signal handle..." alt="" coords="219,125,407,151"/>
-<area shape="rect" id="node3" href="$classGlib_1_1SignalProxyDetailedAnyType.html" title="Proxy for signals with any number of arguments and possibly a detailed name." alt="" coords="455,5,643,47"/>
-<area shape="rect" id="node5" href="$classGlib_1_1SignalProxy.html" title="Proxy for signals with any number of arguments." alt="" coords="477,71,621,112"/>
-</map>

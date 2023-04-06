@@ -1,6 +1,0 @@
-<map id="Gio::SocketAddressEnumerator" name="Gio::SocketAddressEnumerator">
-<area shape="rect" id="node1" title="Enumerator type for objects that contain or generate SocketAddresses." alt="" coords="5,229,228,256"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="67,155,166,181"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="51,80,182,107"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="59,5,175,32"/>
-</map>

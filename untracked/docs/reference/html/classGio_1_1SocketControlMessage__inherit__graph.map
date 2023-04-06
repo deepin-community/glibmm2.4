@@ -1,8 +1,0 @@
-<map id="Gio::SocketControlMessage" name="Gio::SocketControlMessage">
-<area shape="rect" id="node1" title="A Socket control message." alt="" coords="118,229,318,256"/>
-<area shape="rect" id="node5" href="$classGio_1_1UnixCredentialsMessage.html" title="UnixCredentialsMessage &#45; A SocketControlMessage containing credentials." alt="" coords="5,304,220,331"/>
-<area shape="rect" id="node6" href="$classGio_1_1UnixFDMessage.html" title="UnixFDMessage — A GSocketControlMessage containing a GUnixFDList." alt="" coords="244,304,403,331"/>
-<area shape="rect" id="node2" href="$classGlib_1_1Object.html" title=" " alt="" coords="169,155,267,181"/>
-<area shape="rect" id="node3" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="153,80,283,107"/>
-<area shape="rect" id="node4" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="160,5,276,32"/>
-</map>

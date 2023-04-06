@@ -1,3 +1,174 @@
+2022-09-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.66.5
+
+2022-09-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Doxyfile.in: Remove obsolete entry
+
+2022-09-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Convert README to README.md
+
+2022-07-29  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::DBus::Proxy: Add some refreturn
+
+  get_connection() and get_interface_info() must add a reference.
+  The error in get_connection() was noticed by 우정모 (kr.woaini).
+  Fixes #102
+
+2022-07-23  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  gmmproc: Make h2def.py recognize G_DEFINE_AUTOPTR_CLEANUP_FUNC
+
+2022-06-09  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::ListStore: Don't derive a gtkmm__GListStore GType
+
+  GListStore is declared G_DECLARE_FINAL_TYPE.
+
+2022-06-09  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  gmmproc: Improved handling of final types
+
+  Some GObject-derived classes shall not be derived from.
+  
+  * glib/glibmm/class.cc:
+  * glib/glibmm/interface.cc: Don't derive or add interfaces to a class
+  if G_TYPE_IS_FINAL(gtype) is true.
+  * tools/m4/class_shared.m4: Fix gtype_ when _DO_NOT_DERIVE_GTYPE is used.
+  Add _ABI_AS_WITH_DERIVED_GTYPE, making it possible to
+  add _DO_NOT_DERIVE_GTYPE without breaking ABI.
+
+2022-06-06  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::Action: Improve the documentation
+
+  See issue #100
+
+2022-06-01  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Update tools/test_scripts/testheaders.sh
+
+2022-05-27  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Ensure g[lib|io]mm[config.h|.rc] are created
+
+  ...before attempting the build.  This will ensure that they are available
+  during the build and that we do not accidentally refer to an old copy that
+  exists on the system.
+  
+  Should fix issue #99.
+
+2022-05-27  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  NMake Makefiles: Remove rules on build directory creation
+
+  Instead, create them using plain 'md' commands if they don't exist prior to
+  compiling the sources, if applicable.
+  
+  Should speed up builds a bit.
+
+2022-05-23  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Meson/MSVC: Add more warnings to ignore
+
+  We can actually silence more warnings here, since the issues that they cover
+  can normally be fished out by the unit tests.
+
+2022-05-23  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Meson: Re-organize MSVC compiler warnings-related items
+
+  Add a short description of each of the current compiler flags we are using for
+  this purpose, and only apply '/wd4267' for 64-bit builds since that flag
+  normally applies for 64-bit builds only.
+
+2022-05-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Avoid configuration warnings
+
+2022-05-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.66.4
+
+2022-05-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::ustring_Iterator: Accept a warning from clang++
+
+  The fix in commit 94ab1e5359f3bd9eb8204aadea88e08f52a291d8
+  broke ABI. Revert the modification of ustring_Iterator.
+  It's difficult to avoid a -Wdeprecated-copy warning from clang++
+  without either removing or adding ABI.
+  Fixes #98
+
+2022-05-02  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.66.3
+
+2022-04-08  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::TlsCertificate: Fix the create*() methods
+
+  Don't call constructors that don't work because the g_tls_certificate_new_*()
+  functions do more than just call g_object_new().
+
+2022-02-25  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib, Gio: Use _WRAP_METHOD(..., ignore_deprecations)
+
+2022-02-25  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  gmmproc: Add "ignore_deprecations" argument in _WRAP_METHOD()
+
+  Makes it easier to suppress deprecation warnings when a C method has been
+  deprecated, but the corresponding C++ method shall not (yet) be deprecated.
+
+2022-02-24  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Check if Perl is required for building documentation
+
+  New versions of mm-common use the Python scripts doc_postprocess.py
+  and doc_install.py instead of the Perl scripts doc-postprocess.pl and
+  doc-install.pl when documentation is built.
+
+2022-02-15  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Declare some copy constructors =default
+
+  Avoid warnings from the clang++ compiler.
+  
+  It's deprecated to implicitly declare a copy constructor, if there
+  is a user-defined or user-deleted (=delete) copy assignment operator.
+
+2022-02-14  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Remove HACKING
+
+2022-02-14  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Specify 'check' option in run_command()
+
+  The default value will be changed in future Meson releases.
+  
+  Don't use deprecated python3.path() and execute(..., gui_app: ...).
+
+2021-11-24  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::SocketClient, TlsClientConnection: Ignore some deprecations
+
+  g_socket_client_[set,get]_tls_validation_flags() and
+  g_tls_client_connection_[set,get]_validation_flags() are deprecated in
+  glib 2.72. They can't be deprecated in glibmm 2.66. Ignore the deprecations,
+  so it will still be possible to compile with warnings=fatal.
+
+2021-11-09  Chun-wei Fan  <fanchunwei@src.gnome.org>
+
+  Build: Support VS2022 builds
+
+  Make these builds distinct from the Visual Studio 2019 builds.
+
 2021-10-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
 
   2.66.2
@@ -1410,213 +1581,4 @@
 2019-07-21  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
 
   Glib, Gio: Regenerate docs.xml and .defs files
-
-2019-07-17  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::DBus::Object::get_interface_vfunc(): Don't add global symbol
-
-  The previous fix of Gio::DBus::Object vfuncs added a Glib::unwrap_copy()
-  overload, which became a global symbol in the load module. Replace it
-  with a local name in an anonymous namespace.
-
-2019-07-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::DBus::Object: Fix refcounts in some vfuncs
-
-  Gio::DBus::Object::get_interface_vfunc() and get_interfaces_vfunc()
-  must add a reference to the returned DBus interfaces. The caller shall
-  unref them. g_dbus_object_get_interface() and g_dbus_object_get_interfaces()
-  are marked (transfer full).
-
-2019-07-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib::ustring docs: ustring can't always replace std::string
-
-  Fixes #47
-
-2019-07-09  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib::init(), Gio::init(): Improve the documentation
-
-  See issue #49
-
-2019-07-08  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib::Variant<std::tuple<>>::create(): Fix memory leak
-
-  Fixes #48
-
-2019-07-08  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  gmmproc: Update enum.pl and h2def.py for new glib deprecation macros
-
-  * tools/enum.pl:  Don't replace MY_ENUMERATOR = '}' with MY_ENUMERATOR = ']'.
-  Remove *_DEPRECATED_TYPE_IN_* and *_DEPRECATED_ENUMERATOR_IN_* when enum
-  definitions are parsed.
-  * tools/defs_gen/h2def.py: When parsing function declarations:
-  Remove G_GNUC_BEGIN_IGNORE_DEPRECATIONS, G_GNUC_END_IGNORE_DEPRECATIONS
-  and G_DECLARE_INTERFACE(*). Update the removals of *_DEPRECATED*
-  and *_AVAILABLE_IN* so the new *_DEPRECATED_TYPE* and friends won't
-  affect the result.
-
-2019-06-30  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Properties example: Print the property values
-
-2019-06-30  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib::Object, Thread: Use G_GNUC_{BEGIN,END}_IGNORE_DEPRECATIONS
-
-  * glib/glibmm/object.[h|cc]: GParameter is really deprecated (not just
-  mentioned in a comment). Use G_GNUC_{BEGIN,END}_IGNORE_DEPRECATIONS
-  to avoid warnings.
-  * glib/src/thread.hg: GLib ignores G_DISABLE_DEPRECATED.
-  Use G_GNUC_{BEGIN,END}_IGNORE_DEPRECATIONS to avoid warnings.
-
-2019-06-12  Daniel Boles  <dboles@src.gnome.org>
-
-  Property: Clarify “manipulate” → read and/or write
-
-2019-04-26  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib::Checksum, DateTime, TimeZone: Add TODO comments
-
-  These classes shall have Glib::Value specializations, when we can add API.
-  In the master branch, where API and ABI can be changed, they have been
-  wrapped as _CLASS_BOXEDTYPE.
-
-2019-04-18  Dainis Jonitis  <jonitis@gmail.com>
-
-  Fix callback races in glibmm when source is destructed
-
-  It is normal situation when glib main loop iterates sources on one
-  thread where it checks whether source is still active and its callback
-  functions can be called and glibmm Source being destroyed on other
-  thread. Glibmm should check once again that callback_data and
-  callback_funcs fields are still valid and GSource was not marked
-  as inactive while its callback handlers are called.
-  
-  Fixes #41
-
-2019-04-18  Martin Ejdestig  <marejde@gmail.com>
-
-  Use convert_return_gchar_ptr_to_*() in a couple of ustring methods
-
-  First attempt at fixing memory leak in make_valid() (see previous commit)
-  used make_unique_ptr_gfree() directly because of looking at these methods.
-  Better to use the helper function.
-  
-  This actually fixes undefined behavior for normalize() since
-  g_utf8_normalize() is documented to return NULL if string is not a valid
-  UTF-8 string. The constructor for std::string, which ustring uses for
-  storage, that takes a pointer is documented to have undefined behavior if
-  pointer is NULL. The utility function checks for NULL and uses the default
-  constructor in that case. (Have not looked at implementation of Glib
-  functions, and it may be that all std::string implementations Glibmm is
-  used with handles this case, but good to avoid undefined behavior
-  regardless, I think.)
-
-2019-03-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  2.60.0
-
-2019-03-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  giomm.h: Add missing #include directives
-
-2019-03-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::NetworkManager: Add class documentation
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio: Add some API (AppInfo::launch_uris_async() etc.)
-
-  * gio/src/appinfo.hg: Add launch_uris_async() and launch_uris_async().
-  * gio/src/asyncresult.hg: _IGNORE g_async_result_legacy_propagate_error().
-  * gio/src/dbusconnection.hg: Add get/property_flags().
-  * tools/m4/convert_gio.m4: Add conversions for GDBusConnectionFlags.
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib: Add some API (DateTime::get_timezone() etc.)
-
-  * glib/src/datetime.[ccg|hg]: Add get_timezone().
-  * glib/src/keyfile.hg: Add get_locale_for_key().
-  * glib/src/timezone.hg: Add get_identifier().
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::Settings: Add property_settings_schema()
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio: Use _IS_REFCOUNTED_BOXEDTYPE where appropriate
-
-  * gio/src/dbusintrospection.hg: Add _IS_REFCOUNTED_BOXEDTYPE to
-  Gio::DBus::InterfaceInfo which is used in _WRAP_PROPERTY in Gio::DBus::Proxy.
-  * gio/src/settingsschema.hg: Add _IS_REFCOUNTED_BOXEDTYPE. SettingsSchema is
-  used in _WRAP_PROPERTY in Gio::Settings.
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  gmmproc: Add _IS_REFCOUNTED_BOXEDTYPE
-
-  * glib/glibmm/value.h: Add Value_RefPtrBoxed<>.
-  * tools/m4/class_opaque_refcounted.m4: Add _IS_REFCOUNTED_BOXEDTYPE, which can
-  be used together with _CLASS_OPAQUE_REFCOUNTED. It generates a *_get_type()
-  function and a Glib::Value specialization. A Glib::Value specialization is
-  required, if the C++ class is used in _WRAP_PROPERTY.
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::TlsClientConnection: Deprecate property_accepted_cas()
-
-  It does not work because there is no suitable Glib::Value<T> specialization.
-  get_accepted_cas() can be used instead.
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib::Value: Add Value<std::vector<string>> specializations
-
-  Add Value<std::vector<std::string>> and Value<std::vector<Glib::ustring>>.
-  One of them is needed in _WRAP_PROPERTY("names", std::vector<Glib::ustring>)
-  in Gio::ThemedIcon and in _WRAP_PROPERTYs in gtkmm.
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::ThemedIcon: Add create(const std::vector<Glib::ustring>& iconnames)
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::AsyncResult: Explain why wrap() is not used in get_source_object_base()
-
-  * gio/src/asyncresult.ccg: Replace a TODO comment with an explanation.
-  * tests/giomm_asyncresult_sourceobject/main.cc: Add code that demonstrates
-  why Glib::wrap(GObject* object, bool take_copy) returns an empty RefPtr.
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib: Add some Glib::Value<> specializations
-
-  * glib/glibmm/error.[cc|h]: Add operator bool(). Add Glib::Value<Glib::Error>
-  so Glib::Error can be used in _WRAP_PROPERTY().
-  * glib/glibmm/value.[cc|h]: Add Glib::ValueBase_Variant, base class of
-  Glib::Value<VariantBase>.
-  * glib/src/variant.[ccg|hg]: Add Glib::Value<VariantBase> which is
-  needed in _WRAP_PROPERTY() in Gio:Action.
-  * glib/src/varianttype.[ccg|hg]: Add Glib::Value<VariantType> which is
-  needed in _WRAP_PROPERTY() in Gio:Action.
-  
-  All data types that occur in _WRAP_PROPERTY() must have correct Glib::Value<>
-  specializations. In most cases missing Value<> specializations are noticed
-  only during execution of code that calls an affected property_*() method.
-
-2019-03-18  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio: Remove NO_GTYPE from some _WRAP_ENUMs
-
-  NO_GTYPE can't be used in _WRAP_ENUM if the enum is used in _WRAP_PROPERTY.
-  The error is noticed only during execution of code that calls the generated
-  property_*() method. Fixes #37
 

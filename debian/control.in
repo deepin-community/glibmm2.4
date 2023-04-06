@@ -11,13 +11,15 @@ Build-Depends: debhelper-compat (= 13),
                xsltproc,
                libglib2.0-dev (>= 2.61.2),
                libsigc++-2.0-dev (>= 2.9.1),
+               libxml-parser-perl <!nodoc>,
                meson (>= 0.54.0),
                pkg-config,
                mm-common (>= 0.9.10)
-Standards-Version: 4.3.0
+Standards-Version: 4.6.1
+Rules-Requires-Root: no
 Vcs-Browser: https://salsa.debian.org/gnome-team/glibmm
 Vcs-Git: https://salsa.debian.org/gnome-team/glibmm.git
-Homepage: http://www.gtkmm.org/
+Homepage: https://www.gtkmm.org/
 
 Package: libglibmm-2.4-1v5
 Architecture: any

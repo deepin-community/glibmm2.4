@@ -1,9 +1,0 @@
-<map id="Gio::UnixSocketAddress" name="Gio::UnixSocketAddress">
-<area shape="rect" id="node1" title="UnixSocketAddress &#45; UNIX SocketAddress." alt="" coords="46,379,223,405"/>
-<area shape="rect" id="node2" href="$classGio_1_1SocketAddress.html" title="Abstract base class representing endpoints for socket communication." alt="" coords="61,304,208,331"/>
-<area shape="rect" id="node3" href="$classGlib_1_1Object.html" title=" " alt="" coords="5,229,104,256"/>
-<area shape="rect" id="node4" href="$classGlib_1_1ObjectBase.html" title="Glib::ObjectBase is a common base class for Objects and Interfaces." alt="" coords="69,80,200,107"/>
-<area shape="rect" id="node7" href="$classGlib_1_1Interface.html" title=" " alt="" coords="141,155,256,181"/>
-<area shape="rect" id="node5" href="/opt/gnome/share/doc/libsigc++-2.0/reference/libsigc++-2.0.tag$structsigc_1_1trackable.html" title=" " alt="" coords="77,5,193,32"/>
-<area shape="rect" id="node6" href="$classGio_1_1SocketConnectable.html" title="Interface for potential socket endpoints." alt="" coords="128,229,304,256"/>
-</map>
