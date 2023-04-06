@@ -1,0 +1,26 @@
+Switch TEST_FILE from /etc/fstab to /etc/passwd
+
+/etc/fstab could be empty in some circumstances.
+By Tianyu Chen on 2023-04-06 17:11:31+08:00.
+--- a/tests/giomm_ioerror/main.cc
++++ b/tests/giomm_ioerror/main.cc
+@@ -24,7 +24,7 @@
+ #ifdef G_OS_WIN32
+ #define TEST_FILE "c:/windows/write.exe"
+ #else
+-#define TEST_FILE "/etc/fstab"
++#define TEST_FILE "/etc/passwd"
+ #endif
+ 
+ int
+--- a/tests/giomm_simple/main.cc
++++ b/tests/giomm_simple/main.cc
+@@ -12,7 +12,7 @@
+ #ifdef G_OS_WIN32
+ #define TEST_FILE "c:/windows/write.exe"
+ #else
+-#define TEST_FILE "/etc/fstab"
++#define TEST_FILE "/etc/passwd"
+ #endif
+ 
+ int

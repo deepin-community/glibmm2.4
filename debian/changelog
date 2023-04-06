@@ -1,3 +1,11 @@
+glibmm2.4 (2.66.5-2deepin) unstable; urgency=medium
+
+  [ Tianyu Chen ]
+  * Switch TEST_FILE from /etc/fstab to /etc/passwd
+    /etc/fstab could be empty in some circumstances.
+
+ -- Tianyu Chen <chentianyu1@uniontech.com>  Thu, 06 Apr 2023 17:12:28 +0800
+
 glibmm2.4 (2.66.5-2) unstable; urgency=medium
 
   [ Debian Janitor ]
