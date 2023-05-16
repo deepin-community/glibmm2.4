@@ -1,3 +1,87 @@
+2023-03-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  2.66.6
+
+2023-02-22  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Doxyfile.in: Don't hide undocumented classes
+
+  Might make the inheritance diagrams less incomplete when Doxygen's
+  tag files are not perfect.
+
+2023-02-22  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Dispatcher: Remove a g_warning()
+
+  Don't warn when a Dispatcher is deleted while messages are pending.
+  Fixes #108
+
+2023-02-22  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  README.md: meson -> meson setup
+
+2023-01-13  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Simplify if-file-exists test
+
+2023-01-09  Chun-wei Fan  <fanc999@yahoo.com.tw>
+
+  generate_wrap_init.pl.in: Disable warning C4273
+
+  ... for Visual Studio builds, as GLib 2.75.x and later applied
+  __declspec(dllimport) via macros to DLL builds of the GLib libraries,
+  meaning that when we put the GQuark and GType function prototypes into
+  wrap_init.cc warning C4273 will be raised as the prototypes in
+  wrap_init.cc does not have any dllimport decorations (and would not have
+  otherwise mattered).
+  
+  This allows builds with '-Dwarnings=fatal' to proceed with Visual Studio
+  builds.
+  
+  Please see: MR!57.
+
+2023-01-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Simplify lookup of python command
+
+  See libsigcplusplus PR#83
+
+2023-01-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Fix the evaluation of is_git_build on Windows
+
+  See gtkmm#131
+
+2023-01-04  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Meson build: Don't copy files with configure_file()
+
+  It's deprecated from Meson 0.64. The replacement, fs.copyfile(),
+  is not useful here. It only copies from the source directory to
+  the build directory.
+
+2022-12-31  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Glib::Module::build_path(): Ignore deprecation of g_module_build_path()
+
+2022-11-05  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Gio::NetworkMonitor::get_default(): Add refreturn
+
+  Fixes #104
+
+2022-10-10  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  Doxyfile.in: Allow more graph nodes
+
+  Required for Glib::Object's inheritance diagram.
+
+2022-09-26  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
+
+  meson.build: Detect if we build from a git subtree
+
+  See gtkmm!72 (William Roy)
+
 2022-09-19  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
 
   2.66.5
@@ -1471,114 +1555,4 @@
   can crash, if any subclass does not.
   
   This patch adds API by adding code from the master branch. Fixes #52
-
-2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::Application: Add add_option_group()
-
-  Fixes #46
-
-2019-09-16  Daniel Boles  <dboles@src.gnome.org>
-
-  Property: Add const get_proxy() returning ReadOnly
-
-  We could only get_proxy() if non-const and with a read/write Proxy. This
-  resolves that so that we can get a read-only proxy from a const Property
-  (without having to construct manually from the instance/name as before).
-  
-  Close https://gitlab.gnome.org/GNOME/glibmm/issues/44
-
-2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib::Property_ReadOnly: get_proxy() can be const
-
-  Compare commit bfe785f44dffd7fcd4457f96b7b927092d08ee55 by Daniel Boles.
-
-2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Add Gio::DBus::ObjectManager*
-
-  Add Gio::DBus::ObjectManager, Gio::DBus::ObjectManagerClient and
-  Gio::DBus::ObjectManagerServer. Fixes #43
-
-2019-09-16  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Add Gio::DBus::ObjectProxy and Gio::DBus::ObjectSkeleton
-
-  In preparation for adding Gio::DBus::ObjectManager, ObjectManagerClient
-  and ObjectManagerServer. See issue #43.
-
-2019-09-15  Krzysztof Piecuch  <piecuch@protonmail.com>
-
-  ustring: Add make_valid()
-
-  make_valid() replaces all non-UTF8 characters with replacement
-  character (U+FFFD). Allows manipulating with ustring after you find
-  out by ustring::validate() that it's not an UTF-8 string and you
-  need to rescue it somehow. This wraps g_utf8_make_valid().
-  
-  https://bugzilla.gnome.org/show_bug.cgi?id=780075
-  See also issue #40
-  
-  This commit includes part of MR !11 by Martin Ejdestig <marejde@gmail.com>,
-  fixing a memory leak in the original make_valid().
-
-2019-09-15  Daniel Boles  <dboles@src.gnome.org>
-
-  ustring: Add sprintf(), wrapping g_strdup_printf()
-
-  This is a manually squashed version of several commits in the master branch.
-  Squashed by Kjell Ahlstedt.
-  
-  Fixes #21
-
-2019-09-15  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib, Gio: Regenerate docs.xml and .defs files
-
-2019-09-02  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio::SocketControlMessage: Add deserialize_vfunc_callback()
-
-  The deserialize vfunc in GLib is a class virtual function (not associated
-  with an instance). Such functions don't exist in C++. But it must be wrapped
-  in one way or another. g_socket_control_message_deserialize() assumes that
-  all subclasses of GSocketControlMessage override this vfunc. A user-program
-  can crash, if any subclass does not.
-  
-  This patch that does not add API. A more complete fix can be committed,
-  when API can be added. Fixes #52
-
-2019-08-12  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Disable warnings from deprecated GTimeVal and GTime
-
-  GTimeVal and GTime have been deprecated in glib.
-  They can't be deprecated in the stable glibmm-2-60 branch now.
-  This patch makes it possible to build glibmm-2.60.x against the newest glib.
-  This affects Glib::TimeVal, Glib::Date, Glib::DateTime and Gio::FileInfo.
-
-2019-07-22  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Revert "Glib, Gio: Regenerate docs.xml and .defs files"
-
-  This reverts commit 3fcc2bdeb4a8df2172d6cc453b9d07c6cc9eda0d.
-  Changes in glib 2.61 should not have been added to glibmm 2.60
-
-2019-07-21  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Gio: Fix ownership of some lists and arrays
-
-  * gio/src/drive.hg: get_volumes(): Glib::OWNERSHIP_SHALLOW -> DEEP
-  * gio/src/mountoperation.hg: signal_ask_question(): DEEP -> NONE
-  A signal handler shall not deallocate its input data.
-  * gio/src/themedicon.hg: get_names(): DEEP -> NONE
-  * gio/src/tlsdatabase.[ccg|hg]: lookup_certificates_issued_by[_finish]_vfunc():
-  g_list_copy() -> g_list_copy_deep()
-  * gio/src/volumemonitor.hg: get_connected_drives(), get_volumes(),
-  get_mounts(): SHALLOW -> DEEP
-
-2019-07-21  Kjell Ahlstedt  <kjellahlstedt@gmail.com>
-
-  Glib, Gio: Regenerate docs.xml and .defs files
 
