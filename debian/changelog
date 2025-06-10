@@ -1,3 +1,9 @@
+glibmm2.4 (2.66.6-1deepin2) unstable; urgency=medium
+
+  * update version for rebuild.
+
+ -- liujianqiang <liujianqiang@uniontech.com>  Tue, 10 Jun 2025 15:12:16 +0800
+
 glibmm2.4 (2.66.6-1deepin1) unstable; urgency=medium
 
   * update upstream release.
