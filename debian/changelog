@@ -1,3 +1,9 @@
+glibmm2.4 (2.66.6-1deepin3) unstable; urgency=medium
+
+  * Rebuild with LTO enabled (dpkg vendor feature optimize/lto).
+
+ -- tunaichao <tunaichao@uniontech.com>  Thu, 10 Sep 2026 17:28:15 +0800
+
 glibmm2.4 (2.66.6-1deepin2) unstable; urgency=medium
 
   * update version for rebuild.
